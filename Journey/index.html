@@ -9,16 +9,88 @@
 </head>
 
 <body>
-    <h1>Hello World!</h1>
-    <p>
-        This is the start of my coding journey after failing in my life once already.<br>
-        <strong> I will not let the setback be the end of it all </strong> and only <em>grow stronger from it.</em>
-    </p>
+    <h1>THE CHEATSHEET</h1>
+    <h2>Bash</h2>
+    <ul>
+        <li><em>cd: </em> (to change directory)
+            <br><strong> use . . to go back one directory and slashes to keep going</strong>
+            <em> {. . goes back one from the pwd and not any other specific directory}</em>
+        </li>
+        <br>
+        <li> <em>pwd:</em> (print working directory i.e. to check the directory position from root)</li>
+        <br>
+        <li> <em>ls:</em> (to show contents of current directory) </li>
+        <br>
+        <li> <em>"command" --help:</em> (to check the possible arguments and their working)</li>
+        <br>
+        <li><em>mkdir: </em>(to create a directory)</li>
+        <br>
+        <li> <em>echo "text":</em> (to print text in the terminal)
+            <br><strong>use echo > to put text in a file or create an empty file (can also use touch but only for empty
+                file)</strong><br>
+            <em>To add/change text in a given file:
+                <ol>
+                    <li> > overwrites the text if any</li>
+                    <li> >> adds the text as a new line (if two texts written, it adds both in the same line)</li>
+                </ol>
+            </em>
+        </li>
+        <br>
+        <li><em>rm:</em> (to remove a file)
+            <strong>To remove a directory use -r argument, also use -i for prompt before deleting</strong>
+            <br><em> rmdir is <strong>BETTER</strong> to use. </em>
+        </li>
+        <br>
+        <li><em> mv "directory if needed/filename" "new location/filename":</em> ( to move a file or directory from one
+            location to another)
+            <br><strong>To change the name of a file only: "directory if needed/filename" "new name"</strong>
+            <br><em> CAUTION: if files have same name mv overwrites the file without prompt</em>
+        </li>
+        <br>
+        <li><em>cat/less:</em> (to check the contents of the file)
+            <br><strong>-w for word count, -l for lines and -m for characters</strong>
+        </li>
+        <br>
+        <li><em>clear:</em> (to clear the bash shell) </li>
+        <br>
+        <li><em>wc:</em> (to count the number of words in a file) </li>
+        <br>
+        <li><em>head/tail -n "number":</em> To take specific number of lines from the top{by head} or the bottom{by
+            tail}
+            <br><strong> without -n, it will take all the lines </strong>
+        </li>
+        <br>
+        <li><em>| :</em> (to perform multiple actions in one step)</li>
+        <br>
+        <li><em>sort:</em>(to sort the items on a list)
+            <br><strong> -r for reverse order</strong>
+        </li>
+    </ul>
 
-    <p> I will learn all there is to it about web development and study something related to coding everyday
-        without failure.</p>
-
-    <!-- I Might never mentally recover from this setback-->
+    <h2>GIT</h2>
+    <ul>
+        <li><em>git clone "git@github.com:USER-NAME/REPOSITORY-NAME.git":</em> (To connect the github repository to the
+            local git)</li>
+        <br>
+        <li><em>git add "filename":</em> (to add a new/modified file from working directory to the staging area)</li>
+        <br>
+        <li><em>git rm:</em> (to remove a file from git)</li>
+        <br>
+        <li><em>git commit -m "information about process":</em> (to commit the staged files)</li>
+        <br>
+        <li><em> git status:</em> (to check where the changes are as per git{staged/working etc.})
+            <br>
+            <ol>
+                <li><strong>Red Color:</strong> The file has not been staged yet</li>
+                <li><strong>Green Color:</strong> The file has been staged</li>
+                <li><strong>Nothing to commit,working tree clean:</strong> The file has been comitted into git</li>
+            </ol>
+            <br>
+        <li><em>git push:</em> (to push the commited changes to github)</li>
+        <br>
+        <li><em>git log:</em> (to check the log history of changes or snapshots)</li>
+        </li>
+    </ul>
 </body>
 
 </html>
