@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS</title>
+    <link rel="stylesheet" href="./styles/css_style.css">
+</head>
+
+<body>
+    <h1>CSS</h1>
+    <br>
+    <h2>Adding CSS to HTML</h2>
+    <ul>
+        Three ways to add CSS:
+        <br>
+        <ol>
+            <li><em>External CSS:</em>
+                <br>
+                using <strong>"link" tag with attribute rel="stylesheet" and href="./file location"</strong>
+            </li>
+            <li><em>Internal CSS:</em>
+                <br>
+                using <strong>style element in the head element</strong>
+            </li>
+            <li><em>Inline CSS:</em>
+                <br>
+                using style <strong>attribute</strong> in the opening tag of an element
+            </li>
+        </ol>
+        </li>
+        <br>
+    </ul>
+    <br>
+    <h2>Different Types of Selectors:</h2>
+    <ul>
+        <li><em>*(Universal Selector):</em> Applies the style properties to all the elements
+        </li>
+        <br>
+        <li><em>Type Selectors:</em> used to select all the tags of one type like div, p
+        </li>
+        <br>
+        <li><em>Class Selectors:</em> used to select the elements with the <strong>class attribute</strong>
+            <br>
+            <strong>syntax for class attribute is .'name of tag' like .div , .p
+                <br>two or more classes can be made with a space between them in the double quotes
+            </strong>
+        </li>
+        <br>
+        <li><em>ID Selectors"</em> used to select the tag with the <strong>id attribute</strong>
+            <br>
+            <strong>syntax for id attribute is #'name of tag' like #div, #p</strong>
+            <div class="note">many tags of the same or different type can have the class attribute but
+                an id attribute is unique to only 1 tag(not even element of same type)</div>
+        </li>
+        <br>
+        <li>Ways to apply same styles to multiple tags:</li>
+        <ol>
+            <li><em>Grouping Selectors:</em> using comma(,) to group 2 attributes together like <br>.div,<br>.p {}
+            </li>
+            <br>
+            <li><em>Chaining Selectors</em> using style syntaxes together to chain the tags like <br>.div.p(no space) {}
+            </li>
+            <br>
+            <li><em>Descendant Combinator:</em> used to style the specific tags that follow the ancestory i.e. that come
+                under all the attributes defined with syntax<br>
+                <strong>syntax is .'name of tag" (space) .'name of tag' like .div .p</div></strong>
+            </li>
+    </ul>
+    <br>
+    <h2>Properties</h2>
+    <div class="note">*use colon(:) after property and semicolor(;) after value*</div>
+    <ul>
+        <li><em>Color:</em> changes the text color</li>
+        <br>
+        <li><em>background-color:</em> changes the background color of the tag(tag only)</li>
+        <br>
+        <li><em>font-family:</em> used to provide font family name("Times New Roman") or/and generic family
+            name(sans-serif) to the browser<br>
+            <strong>Comma is used to provide more than 1 fonts </strong>
+        </li>
+        <br>
+        <li><em>font-size:</em> used to change the size of the text<br>
+            <strong>syntax is 'number'px (no space) like 20px, 35px</strong>
+        </li>
+        <br>
+        <li><em>font-weight:</em> changes the boldness of the text<br>
+            <strong>700 is the equivalent of bold</strong>
+        </li>
+        <br>
+        <li><em>text-align:</em> changes the position of the text horizontally</li>
+        <br>
+        <li><em>height and width(image):</em> changes the height and width of the image
+            <br>
+            <strong>Use auto to keep the proportions same as the original image</strong>
+        </li>
+    </ul>
+</body>
+
+</html>

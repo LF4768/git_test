@@ -1,0 +1,13 @@
+h1 {
+    text-align: center;
+}
+
+em {
+    color: darkred;
+    font-weight: bold;
+}
+
+.note {
+    background-color: black;
+    color: white;
+}
