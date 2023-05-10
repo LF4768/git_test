@@ -1,0 +1,14 @@
+h1 {
+    text-align: center;
+}
+
+
+
+em {
+    color: darkred;
+    font-weight: bold;
+}
+
+.tip {
+    color: green;
+}

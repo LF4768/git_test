@@ -4,62 +4,67 @@
 <head>
     <title> BASH</title>
     <meta charset="UTF-8">
-</head>
+    <link rel="stylesheet" href="./styles/bash_style.css" </head>
 
 <body>
+    <h1>BASH</h1>
+    <br>
     <ul>
-        <li><em>cd: </em> (to change directory)
+        <li><em>cd: </em> to change directory
             <br><strong> use {cd . .} to go back one directory and slashes to keep going</strong>
-            <em> {. . goes back one from the pwd and not any other specific directory}</em>
+            <div class="tip">{. . goes back one from the pwd and not any other specific directory}</div>
             <br><strong>Use {cd -} to go back to the directory you were in before</strong>
         </li>
         <br>
-        <li> <em>pwd:</em> (print working directory i.e. to check the directory position from root)</li>
+        <li> <em>pwd:</em> print working directory i.e. to check the directory position from root</li>
         <br>
-        <li> <em>ls:</em> (to show contents of current directory) </li>
+        <li> <em>ls:</em> to show contents of current directory </li>
         <br>
-        <li> <em>"command" --help:</em> (to check the possible arguments and their working)</li>
+        <li> <em>"command" --help:</em> to check the possible arguments and their working</li>
         <br>
-        <li><em>mkdir: </em>(to create a directory)</li>
+        <li><em>mkdir: </em>to create a directory</li>
         <br>
-        <li> <em>echo "text":</em> (to print text in the terminal)
-            <br><strong>use echo > to put text in a file or create an empty file (can also use touch but only for empty
-                file)</strong><br>
-            <em>To add/change text in a given file:
+        <li> <em>echo "text":</em> to print text in the terminal
+            <br><strong>use echo > to put text in a file or create an empty file can also use touch but only for empty
+                file</strong><br>
+            <div class="tip">To add/change text in a given file:
                 <ol>
                     <li> > overwrites the text if any</li>
-                    <li> >> adds the text as a new line (if two texts written, it adds both in the same line)</li>
+                    <li> >> adds the text as a new line if two texts written, it adds both in the same line</li>
                 </ol>
-            </em>
+            </div>
+
         </li>
         <br>
-        <li><em>rm:</em> (to remove a file)
+        <li><em>rm:</em> to remove a file
             <strong>To remove a directory use -r argument, also use -i for prompt before deleting</strong>
-            <br><em> rmdir is <strong>BETTER</strong> to use. </em>
+            <br>
+            <div class="tip"> rmdir is <strong>BETTER</strong> to use.</div>
         </li>
         <br>
-        <li><em> mv "directory if needed/filename" "new location/filename":</em> ( to move a file or directory from one
-            location to another)
+        <li><em> mv "directory if needed/filename" "new location/filename":</em> to move a file or directory from one
+            location to another
             <br><strong>To change the name of a file only: "directory if needed/filename" "new name"</strong>
-            <br><em> CAUTION: if files have same name mv overwrites the file without prompt</em>
+            <br>
+            <div class="tip"> CAUTION: if files have same name mv overwrites the file without prompt</div>
         </li>
         <br>
-        <li><em>cat/less:</em> (to check the contents of the file)
+        <li><em>cat/less:</em> to check the contents of the file
             <br><strong>-w for word count, -l for lines and -m for characters</strong>
         </li>
         <br>
-        <li><em>clear:</em> (to clear the bash shell) </li>
+        <li><em>clear:</em> to clear the bash shell </li>
         <br>
-        <li><em>wc:</em> (to count the number of words in a file) </li>
+        <li><em>wc:</em> to count the number of words in a file </li>
         <br>
         <li><em>head/tail -n "number":</em> To take specific number of lines from the top{by head} or the bottom{by
             tail}
             <br><strong> without -n, it will take all the lines </strong>
         </li>
         <br>
-        <li><em>| :</em> (to perform multiple actions in one step)</li>
+        <li><em>| :</em> to perform multiple actions in one step</li>
         <br>
-        <li><em>sort:</em>(to sort the items on a list)
+        <li><em>sort:</em>to sort the items on a list
             <br><strong> -r for reverse order</strong>
         </li>
     </ul>
