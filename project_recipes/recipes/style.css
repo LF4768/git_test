@@ -1,0 +1,23 @@
+h1 {
+    text-align: center;
+    color: gold;
+}
+
+body {
+    background-color: green;
+}
+
+.intro {
+    background-color: aqua;
+    font-size: 30px;
+}
+
+.ingredients {
+    background-color: pink;
+    font-size: 18px;
+}
+
+.steps {
+    background-color: black;
+    color: white;
+}
