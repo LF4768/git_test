@@ -10,5 +10,9 @@ em {
 }
 
 .tip {
-    color: green;
+    color: darkgreen;
+}
+
+body {
+    background-color: rgb(219, 208, 208);
 }

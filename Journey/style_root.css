@@ -3,6 +3,11 @@ div {
 }
 
 img {
-    height: auto;
+    height: 100px;
     width: auto;
+}
+
+
+a {
+    color: darkblue;
 }

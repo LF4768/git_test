@@ -15,3 +15,7 @@ em {
 #green {
     color: green;
 }
+
+body {
+    background-color: rgb(211, 223, 223);
+}
