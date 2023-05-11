@@ -19,3 +19,18 @@ em {
 body {
     background-color: rgb(211, 223, 223);
 }
+
+img {
+    height: 125px;
+    width: 500px;
+
+}
+
+div {
+    text-align: center;
+}
+
+div.link {
+    color: white;
+    background-color: black;
+}
