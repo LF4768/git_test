@@ -10,6 +10,11 @@ em {
 .note {
     background-color: black;
     color: white;
+    width: 900px;
+}
+
+.note.second {
+    width: 375px;
 }
 
 body {
