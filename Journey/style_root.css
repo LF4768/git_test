@@ -1,12 +1,22 @@
 div {
     text-align: center;
+
+
 }
 
 img {
     height: 100px;
     width: auto;
+    margin-right: -30em;
+    margin-top: -4em;
+    margin-left: -95px
 }
 
+ol {
+
+    margin-left: 15em;
+    margin-top: 50px;
+}
 
 a {
     color: darkblue;
