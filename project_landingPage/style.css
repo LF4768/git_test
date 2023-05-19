@@ -119,6 +119,7 @@ header {
     padding: 8px;
     margin-top: -20px;
     margin-bottom: 60px;
+
 }
 
 .set {
@@ -173,4 +174,8 @@ p.quotation {
 
 button.white-border {
     border: 2px solid white;
+}
+
+.sub-text {
+    margin: 0px;
 }
