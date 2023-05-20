@@ -1,23 +1,53 @@
-div {
-    text-align: center;
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
 
-
+.top {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background-color: darkblue;
+    padding: 20px;
 }
 
 img {
     height: 100px;
     width: auto;
-    margin-right: -30em;
-    margin-top: -4em;
-    margin-left: -95px
 }
 
 ol {
 
     margin-left: 15em;
-    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
 }
 
 a {
     color: darkblue;
+}
+
+img {
+    border: 3px solid darkgreen;
+    border-radius: 10px;
+}
+
+h1 {
+    color: white;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: darkgreen;
+    color: white;
+    margin: 0;
+    padding: 10px;
 }

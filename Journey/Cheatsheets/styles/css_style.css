@@ -17,6 +17,10 @@ em {
     width: 375px;
 }
 
+.note.third {
+    width: 600px;
+}
+
 body {
     background-color: rgb(220, 237, 220);
 }
