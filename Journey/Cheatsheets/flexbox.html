@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox</title>
+    <link rel="StyleSheet" href="./styles/flexbox_style.css">
+</head>
+
+<body>
+    <h1>FLEXBOX</h1>
+    <h2>How To Start Flexbox</h2>
+    <ul>Choose/Make a container to Flex like div, span, p, etc
+        <li><em>Display:</em> This is used to change the display of your page from normal flow
+            <br>
+            <strong>The flex style changes your container to a flex container and the items in it are called
+                flex-items</strong>
+        </li>
+    </ul>
+    <h2>Axes</h2>
+    <ul>Flexbox aligns items on the basis of two axes that are perpendiculer to each other:
+        <li><em>Main Axis:</em> Alignments occur parallel to this axis</li>
+        <li><em>Cross Axis:</em> Alignments occur perpendiculer to this axis</li>
+        <p>By default, the Main axis goes from <strong>right to left</strong> while the Cross axis goes from <strong>top
+                to bottom</strong> which can be changed by using:</p>
+        <li><em>flex-direction:</em> Used to change the direction of the flex axes</li>
+    </ul>
+    <ol>There are 4 different directions
+        <div class="direction">
+            <li>Flex-direction:row
+                <div class="row">This Is Row</div>
+            </li>
+            <li>flex-direction:column
+                <div class="column">
+                    <p>This</p>
+                    <p>Is</p>
+                    <p>Column</p>
+                </div>
+            </li>
+            <li>flex-direction:row-reverse
+                <div class="row-reverse">
+                    <p>This</p>
+                    <p>Is</p>
+                    <p>Row-Reverse</p>
+                </div>
+            </li>
+            <li>flex-direction:column-reverse
+                <div class="column-reverse">
+                    <p>This</p>
+                    <p>is</p>
+                    <p>Column-reverse</p>
+                </div>
+            </li>
+        </div>
+    </ol>
+    <h2>Flex Shorthand</h2>
+    <ul>Flex has 3 more properties namely:
+        <li><em>flex-grow:</em> Specifes how much area the container takes with respect to the webpage and other
+            containers
+            <br>
+            <strong>Negative values are invalid</strong>
+            <div class="grow-example">
+                <div class="no-grow">I Dont Have grow value</div>
+                <div class="grow">I Have grow value</div>
+                <div class="no-grow">I Dont Have grow value </div>
+            </div>
+        </li>
+        <li><em>flex-shrink:</em> specifes the rate at which area of the container shrinks with respect to the webpage
+            and other containers
+            <br>
+            <strong>Negative values are invalid</strong>
+            <div class="shrink-example">
+                <div class="no-shrink">I Dont Have shrink value</div>
+                <div class="shrink">I Have shrink value</div>
+            </div>
+        </li>
+        <li><em>flex-basis:</em> Sets the size of the items with respect to the container</li>
+    </ul>
+    <ul>There are tricks to specify their values easily:(all are respectively)
+        <li><strong>auto:</strong> sets the values as 1 1 auto </li>
+        <li><strong>initial:</strong> sets the values 0 1 auto</li>
+        <li><strong>none:</strong> sets the values 0 0 auto</li>
+    </ul>
+    <h2>The Golden Properties</h2>
+    <ul>These three properties are used to align the items according to the container
+        <li><em>justify-content:</em> aligns the items parallel to the main axis</li>
+        <br>
+        <ul style="list-style-type:none;">Has 6 different values:
+            <div class="position">
+                <li class="flex-start">flex-start</li>
+                <li class=center>center</li>
+                <li class="flex-end">flex-end</li>
+            </div>
+            <li>space-between</li>
+            <div class="space-between">
+                <p>look</p>
+                <p>at</p>
+                <p>the</p>
+                <p>spacing</p>
+            </div>
+            <li>space-evenly</li>
+            <div class="space-evenly">
+                <p>look</p>
+                <p>at</p>
+                <p>the</p>
+                <p>spacing</p>
+            </div>
+            <li>space-around</li>
+            <div class="space-around">
+                <p>look</p>
+                <p>at</p>
+                <p>the</p>
+                <p>spacing</p>
+            </div>
+        </ul>
+        <li><em>align-items:</em> aligns the items parallel to the cross axis
+            <ul style="list-style-type:none;">has 3 different values
+                <div class="align-example">
+                    <li class="align-start">flex-start</li>
+                    <li class="align-center">center</li>
+                    <li class="align-end">flex-end</li>
+                </div>
+            </ul>
+        </li>
+        <li><em>align-self:</em> Used to align individual items from the container parallel to the cross axis</li>
+    </ul>
+
+</body>
+
+</html>
