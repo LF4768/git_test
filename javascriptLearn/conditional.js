@@ -1,9 +1,7 @@
 // if (These parenthesis contain the condition) {
 //     /* code if condition is true */
-// }
-// else if (condition) {
+// } else if (condition) {
 //     /* code if the first condition is wrong but this one is true */
-// }
 // else {
 //     /* code if none of the above statements work */
 // }
@@ -14,10 +12,10 @@
 //NOTE:
 // if no else statement is given, the if statement code between curly braces will work irrespective of the condition being true or not
 
-let shoppingDone = false;
+let shoppingDone = true;
 let childAllowance;
 
-if (shoppingDone === true) {
+if (shoppingDone == true) {
     childAllowance = 10;
 } else {
     childAllowance = 5;
@@ -68,9 +66,9 @@ function setWeather() {
             para.textContent =
                 "Rain is falling outside; take a rain coat and an umbrella, and don't stay out for too long.";
             break;
-        case "snowing":
+        case "snowing":                                                                                                                                                                                                                                                                                                                                                                         
             para.textContent =
-                "The snow is coming down — it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman.";
+                "The snow is coming down, it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman.";
             break;
         case "overcast":
             para.textContent =

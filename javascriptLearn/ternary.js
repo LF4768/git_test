@@ -10,3 +10,4 @@ function update(bgColor, textColor) {
 select.addEventListener("change", () =>
     select.value === "black" ? update("black", "white") : update("white", "black")
 );
+ 

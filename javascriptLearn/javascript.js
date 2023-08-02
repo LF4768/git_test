@@ -29,7 +29,7 @@ console.log(v);
 console.log(n);
 
 let g = 999999999999999; //integer number correct till 15 only
-let h = 9999999999999999; // decimal number correct till 17 only
+let h = .99999999999999999; // decimal number correct till 17 only
 console.log(g);
 console.log(h);
 

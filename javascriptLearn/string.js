@@ -6,21 +6,21 @@ let doubleQuote = "Wiggly Tuff"; //very little difference between single and dou
 console.log(singleQuote);
 console.log(doubleQuote);
 let singleDouble = 'What is a "jakh"';
-let doubleSingle = "I'm what they call jakh"; //you can only use quotes different than the outer ones, is same quotes are used there is an error
+let doubleSingle = "I'm what they call 'jakh'"; //you can only use quotes different than the outer ones, if same quotes are used there is an error
 console.log(singleDouble);
 console.log(doubleSingle);
 
 let singleSingle = ' I\'m what they call jakh'; //backslash is used to escape characters so that they are recoginized as text
 console.log(singleSingle);
 
-const greeting = `Nalekvi, ${singleQuote}`; //backtics (`) are used to concatenate strings and the variable's value is put 
+const greeting = `Nalekvi ${singleQuote}`; //backtics (`) are used to concatenate strings and the variable's value is put 
 //in with the syntax ${}
 console.log(greeting);
 
-const dialogue1 = `${doubleQuote} ${singleDouble}`;
-const dialogue2 = `${singleQuote} ${doubleSingle}`;
+const dialogue1 = `${doubleQuote}` + ": " + `${singleDouble}`;
+const dialogue2 = `${singleQuote}: ${doubleSingle}`;
 console.log(dialogue1);
-console.log(dialogue2);
+console.log(dialogue2); 
 
 const button = document.querySelector("button");
 
@@ -39,15 +39,15 @@ let marks = 18.67;
 let total = 20;
 console.log(typeof total.toString()); //(variable).toString() used to convert anything to string format
 let opinion = `I really like the design of
- ${singleQuote}, i gave it a ${((marks / total) * 100).toFixed(3)}%` //breaking a line in quotes also breaks the line in the console
-console.log(opinion);
+ ${singleQuote}, i gave it a ${((marks / total) * 100).toFixed(2)}%` //breaking a line in quotes also breaks the line in the console
+console.log(opinion); // <(variable).toFixed(places) is used to stop the decimal conversion to the specified number of positions
 
 let opinionBreak = `I really like the design of \n${singleQuote}, i gave it a ${((marks / total) * 100).toFixed(3)}%`
 console.log(opinionBreak); // \n is known as the line break character and is used to break lines
 
 let sampleText = "ABCDE&GHIJ ${}NOPQRSTUVWX()";
-let length = sampleText.length; //(.).length property returns the length of a string
-console.log(length) //spaces are included in the length\
+let length = sampleText.length; //(variable).length property returns the length of a string
+console.log(length) //spaces are included in the length
 
 //methods to extract part of a string
 let slice = sampleText.slice(5, 13); //(.).slice(startPosition,endPosition) returns part of the string from start postion till end.
@@ -60,7 +60,7 @@ let sliceNegative = sampleText.slice(-20); //negative parameters count from the 
 console.log(sliceNegative);
 let sliceEndNegative = sampleText.slice(-22, -14);
 console.log(sliceEndNegative);
-let sliceImpossibleNegative = sampleText.slice(-15, -22); //returns empty string
+let sliceImpossibleNegative = sampleText.slice(-15, -2); //returns empty string
 console.log(sliceImpossibleNegative);
 
 let substring = sampleText.substring(-2, 13); //substring is similar to slice

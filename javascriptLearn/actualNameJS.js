@@ -14,4 +14,4 @@
 //     alert("-1");
 // };
 
-let result = (a + b < 4) ? resultv = 'below' : result = 'over'
+let result = (a + b < 4) ? result = 'below' : result = 'over'
