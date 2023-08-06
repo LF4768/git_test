@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>
+            ROCK PAPER SCISSORS
+        </title>
+    </head>
+     <body>
+        <script>
+
+            let playerSelection = prompt("Type rock, paper or scissors");
+            if (playerSelection == null) {
+                console.log("Operation cancelled");
+            } else {
+                playerSelection = playerSelection.toLowerCase();
+            }
+            let choice = "";
+            let computerSelection = "";
+            function getComputerChoice () {
+                 choice = Math.random();
+                if (choice <= 1/3) {
+                    computerSelection = "rock";
+                } else if (choice > 1/3 && choice <= 2/3) {
+                    computerSelection = "paper";
+                } else {
+                    computerSelection = "scissors"
+                }
+                console.log(computerSelection);
+                return computerSelection;
+            }
+            function playRound(playerSelection, computerSelection = getComputerChoice()) {
+                if (playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "scissors" && computerSelection === "paper" ) {
+                    console.log("You Win");
+                } else if (playerSelection === "paper" && computerSelection === "scissors" || playerSelection === "scissors" && computerSelection === "rock" || playerSelection === "rock" && computerSelection === "paper") {
+                    console.log("You Lose");
+                } else if (playerSelection === "scissors" && computerSelection === "scissors" || playerSelection === "rock" && computerSelection === "rock" || playerSelection === "paper" && computerSelection === "paper") {
+                    console.log("Draw");
+                } else {
+                    alert("Invalid input, please type according to the format");
+                }
+            }
+            playRound(playerSelection,);
+                </script>
+     </body>
+</html>
