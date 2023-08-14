@@ -52,8 +52,8 @@ const fruits = ["Apple", "Banana", "Orange", "Mango"]
 
 let length = fruits.length; // The length property returns the length of an array(The number of array elements)
 console.log(length);        // The length property is always one more than the highest array index.
-let first = fruits[0];      // Used to access the first array element
-console.log(first);
+let firstFruit = fruits[0];      // Used to access the first array element
+console.log(firstFruit);
 let last  = fruits[fruits.length - 1];  //Used to access the last array element
 console.log(last);
 
@@ -77,6 +77,14 @@ document.querySelector("p").innerHTML = text;
 function myFunction(value) {
   text += "<li>" + value + "</li>";
 }
+
+// array.forEach((item) => {
+//    push every element into the new array
+//    UNLESS it is included in the function arguments
+//    so we create a new array with every item, except those that should be removed
+//   if (!args.includes(item)) {
+//     newArray.push(item);
+//   }
 
 // **METHODS TO ADD ELEMENTS TO ARRAY**
 
@@ -188,4 +196,165 @@ const multiSlice = fruits.slice(2,4) //.slice(startingPosition, Upto !!!BUT EXCL
 console.log(multiSlice); // NOTE: the array is not sliced upto the index of the second argument but 1 before it
 
 // document.getElementById("demo").innerHTML = fruits;   JS by default convert the array into a string on the html page
+
+// ** DESTRUCTURING AN ARRAY **
+
+// Destructuring in JavaScript is a simplified method of extracting multiple properties from an array by taking the structure
+// and deconstructing it down into its own constituent parts through assignments by using a syntax that looks similar to array literals.
+
+//Array elements ko number index ke alawa aur ek naam dena
+
+// SYNTAX
+const [number1, number2, number3] = ["John", 'Jake', "Justin"]
+console.log(number1);
+
+// NOTE: CANNOT USE NUMBERS FOR DECONSTRUCTING AS THEY CANNOT BE VARABLE NAMES
+
+// Destructuring has made extracting data from an array very simple and readable. 
+// Imagine trying to extract data from a nested array with 5 or 6 levels. That would be very tedious. 
+// You use an array literal on the left-hand side of the assignment.
+
+const householdItems = ["Table", "Chair", "Fan"];
+const [a, b, c] = householdItems;
+console.log(a, b, c);
+
+//It takes each variable on the array literal on the left-hand side and maps it to the same element at the same index in the array.
+
+// Variable ko bnana(declaration) aur usse array ke element ke saath jodna(assignment) ko alag alag kar sakte hain
+
+let gender1, gender2;
+[gender1, gender2] = ["Male", "Female"];
+console.log(gender1, gender2);
+
+//if number of destructuring variables > array elememnts, then the unmapped varibles return undefined
+
+const houseHoldItems = ["Table", "Chair", "Fan", "Rug"];
+const [f, g, h, i, j] = householdItems;
+
+console.log(h); // Output: Fan
+console.log(i); // Output: Rug
+console.log(j); // Output: undefined
+
+// if number of destructuring variables < array elements, the elements to be mapped are just left off, there are no errors
+
+const animes = ["One Piece", "AOT", "HunterXHunter", "DBZ"];
+const [x, y, z] = animes;
+console.log(z) // Output: "HunterXHunter"
+
+// DESTRUCTURING RETURNED ARRAYS
+
+//Destructuring makes working with a function that returns an array as a value more precise. It works for all iterables.
+
+function runners() {
+  return ["Sandra", "Ola", "Chi"];
+}
+
+const [l, m, n] = runners();
+
+console.log(l); // Output: Sandra
+console.log(m); // Output: Ola
+console.log(n); // Output: Chi
+
+// DEFAULT VALUE
+
+//Destructuring allows a default value to be assigned to a variable if no value or undefined is passed. It is like providing a fallback when nothing is found.
+
+let p, q;
+[p = 40, q = 4] = [];
+console.log(p); // Output: 40
+console.log(q); // Output: 4
+
+[p = 40, q = 4] = [1, 23];
+console.log(p); // Output: 1
+console.log(q); // Output: 23
+
+// SPECIAL: Default values can also refer to other variables including the one in the same array literal.
+
+const [firstPerson = "Cotlin", secondPerson = firstPerson] = [];
+console.log(firstPerson); // Output: Cotlin
+console.log(secondPerson); // Output: Cotlin
+
+const [firstGuy = "Cotlin", secondGuy = firstGuy] = ["Koku"];
+console.log(firstGuy); // Output: Koku
+console.log(secondGuy); // Output: Koku
+
+const [firstPlayer = "Cotlin", secondPlayer = first] = ["Koku", "Lydia"];
+console.log(firstPlayer); // Output: Koku
+console.log(secondPlayer); // Output: Lydia
+
+// Ignoring some values
+
+//Destructuring lets you map a variable to the elements you are interested in. You can ignore or skip the other elements in the array by using trailing commas.
+
+let one, two;
+[one, , two] = ["child", "kid", "kiddo"]    //The value of kid is not mapped and ignored
+console.log(one, two)
+
+// THE REST AND SPREAD OPERATOR
+
+// REST SYNTAX: If the (…) operator appear on the left-hand side in destructuring then it is a REST PARAMETER.
+//A Rest parameter is used to map all the remaining elements in the array that have not been mapped to the rest variable itself. 
+// It is like gathering what is left behind. 
+// NOTE: The Rest variable must always be the last otherwise a SyntaxError is thrown.
+
+const planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
+const [first, , third, ...others] = planets;
+
+console.log(first); // Output: Mercury
+console.log(third); // Output: Earth
+console.log(others); // Output: ["Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
+
+// SPREAD SYNTAX: If the (…) operator appears on the right-hand in destructuring then it is a SPREAD SYNTAX.
+// It takes all the other elements in the array which have no variable mapped to them and then maps it to the rest variable.
+
+const otherPlanets = ["Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
+const [firstPlanet, secondPlanet, ...rest] = ["Mercury", "Venus", ...otherPlanets];
+
+console.log(firstPlanet); // Output: Mercury
+console.log(secondPlanet); // Output: Venus
+console.log(rest); // Output: ["Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
+
+// When you have more variables on the left-hand side, it maps the single elements in the array equally to the variables.
+
+const planetsOfSolarSystem = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
+
+const [pehla, doosra, ...baaki] = ["Sun", ...planetsOfSolarSystem];
+
+console.log(pehla); // Output: Sun
+console.log(doosra); // Output: Mercury
+console.log(baaki); // Output: ["Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
+
+// Interchanging or Swapping Values [IMPORTANT]
+// One destructuring expression can be used in swapping the values of two variables
+
+let s, t;
+[s, t] = ["Male", "Female"];
+[s, t] = [t, s];
+
+console.log(s); // Output: Female
+console.log(t); // Output: Male
+
+// Nested Array Destruction
+
+// You can also do nested destructuring with arrays. 
+// The corresponding item must be an array in order to use a nested destructuring array literal to assign items in it to local variables.
+
+const numbers = [8, [1, 2, 3], 10, 12];
+const [r, [d, e, v]] = numbers;
+
+console.log(r); // Output: 8
+console.log(d); // Output: 1
+console.log(e); // Output: 2
+
+// Multiple Array Destructuring
+
+// You can destructure an array more than once in the same code snippet.
+
+const places = ["first", "second", "third", "fourth"];
+const [u, ab, , w] = [bc, ...restItems] = places;
+
+console.log(u); // Output: first
+console.log(w); // Output: fourth
+console.log(bc); // Output: first
+console.log(restItems); // Output: ["second", "third", "fourth"]
 

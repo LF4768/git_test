@@ -8,6 +8,12 @@
 </head>
 
 <body>
+
+    <div id="container">
+        <div class="display"></div>
+        <div class="controls"></div>
+      </div>
+      
     <button>Press me</button>
 
     <label for="weather">Select the weather type today: </label>
@@ -19,11 +25,36 @@
         <option value="overcast">Overcast</option>
     </select>
 
-    <p id="demo"></p>
+   <br> <br>
 
 
+<label for="search">Search by contact name: </label>
+<input id="search" type="text" />
+<button id = "searchButton">Search</button>
 
-    <script src="./array.js"></script>
+<p id="demo"></p>
+
+<label for="number">Enter number: </label>
+<input id="number" type="number" />
+<button id = generateButton>Generate integer squares</button>
+
+<p id = "output">Output:</p>
+
+<button onclick = "console.log('Hello World')">Click Me</button> <br> <br>
+
+<button id="btn">CLICK ME FOR JAVASCRIPT ONCLICK</button> <br> <br>
+
+<button id = "eventListenerBtn">CLICK ME FOR EVENT LISTENER CLICK</button> <br> <br>
+
+<button onclick = "clickFunction()">CLICK ME FOR FUNCTION</button>
+
+<div id="container" style = "margin-top : 20px"></div>
+    <button id="1">Click Me</button> <br><br>
+    <button id="2">Click Me</button> <br><br>
+    <button id="3">Click Me</button> <br><br>
+</div>
+
+    <script src="./event.js"></script>
 </body>
 
 </html>
