@@ -1,4 +1,6 @@
-const div = document.querySelector("#universal");
+const body = document.querySelector("body");
+const div = document.createElement("div");
+body.appendChild(div);
 
 const textDiv = document.createElement("div");
 textDiv.setAttribute("id", "text");
@@ -22,7 +24,7 @@ textDiv.appendChild(para);
 
 div.setAttribute("style", "height : 100vh; display : flex; flex-direction : column; align-items: center; justify-content : center")
 
-const body = document.querySelector("body");
+
 body.setAttribute("style", "display : flex; flex-direction : column;  background-color: black");
 
 const input = document.createElement("input");
