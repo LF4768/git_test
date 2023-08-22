@@ -5,42 +5,34 @@
         <title>
             ROCK PAPER SCISSORS
         </title>
+        <script src = "./javascript.js" defer></script>
+        <link rel="stylesheet" href = "./style.css">
     </head>
      <body>
-        <script>
-
-            let playerSelection = prompt("Type rock, paper or scissors");
-            if (playerSelection == null) {
-                console.log("Operation cancelled");
-            } else {
-                playerSelection = playerSelection.toLowerCase();
-            }
-            let choice = "";
-            let computerSelection = "";
-            function getComputerChoice () {
-                 choice = Math.floor(Math.random() * 3);
-                if (choice == 1) {
-                    computerSelection = "rock";
-                } else if (choice == 2) {
-                    computerSelection = "paper";
-                } else {
-                    computerSelection = "scissors"
-                }
-                console.log(computerSelection);
-                return computerSelection;
-            }
-            function playRound(playerSelection, computerSelection = getComputerChoice()) {
-                if (playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "scissors" && computerSelection === "paper" ) {
-                    console.log("You Win");
-                } else if (playerSelection === "paper" && computerSelection === "scissors" || playerSelection === "scissors" && computerSelection === "rock" || playerSelection === "rock" && computerSelection === "paper") {
-                    console.log("You Lose");
-                } else if (playerSelection === "scissors" && computerSelection === "scissors" || playerSelection === "rock" && computerSelection === "rock" || playerSelection === "paper" && computerSelection === "paper") {
-                    console.log("Draw");
-                } else {
-                    alert("Invalid input, please type according to the format");
-                }
-            }
-            playRound(playerSelection,);
-                </script>
+        <div class="heading">
+        <p id = 'title'>Classic Rock Paper Scissors, First to 5 Wins</p>
+        <div class = "buttons">
+        <button id = "rock">Rock</button>
+        <button id = "paper">Paper</button>
+        <button id = "scissors">Scissors</button>
+        </div>
+    </div>
+    <div class="paraText">
+        <div class = "score">
+            <p id = "playerScore"></p>
+            <p id = "computerScore"></p>
+            </div>
+        <div id = "choice">
+            <div id = "playerChoice">
+        <p id = "playerWeapon"></p>
+    </div>
+    <div id = "computerChoice">
+        <p id = "computerWeapon"></p>
+        </div>
+    </div>
+       
+        <p id = "roundWinner"></p>
+        <p id = "result"></p>
+    </div>
      </body>
 </html>
