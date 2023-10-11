@@ -1,0 +1,68 @@
+body {
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+#body {
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    background-color: black;
+    height:30em;
+    width: 24em;
+    border: solid 13px gray;
+    border-radius: 5px;
+}
+
+#display {
+    display: flex;
+    height:100px;
+    width :100%;
+    background-color:lightgray;
+    margin-bottom:5px;
+}
+
+#row {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    width: 384px;
+    margin: 0px 3px 3px 3px;
+}
+.function {
+    background-color: dodgerblue;
+    height:75px;
+    width:95px;
+    border: transparent;
+    border-radius: 10px;
+}
+
+.function:active {
+    background-color:lightblue;
+}
+
+.operator { 
+    background-color:orange;
+    height:75px;
+    width:95px;
+    border: transparent;
+    border-radius: 10px;
+}
+
+.operator:active {
+    background-color: yellow;
+}
+
+#zero {
+    height:75px;
+     width:190px
+}
+
+.text {
+    font-weight: 900;
+    font-size: 25px;
+}
+
