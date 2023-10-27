@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <main class="parent">
+        <div class="child group1">
+          <div class="grand-child group1"></div>
+        </div>
+        <div class="child group2">
+          <div class="grand-child group2"></div>
+        </div>
+        <div class="child group3">
+          <div class="grand-child group3"></div>
+        </div>
+      </main>
+
+
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:center;
+        }
+
+        div {
+            height: 10rem;
+            width: 10rem;
+        }
+        main > div {
+            border: solid 5px red;
+        }
+
+        main > div > div {
+            border: solid 5px blue;
+        }
+
+        .group1 + div {
+            background-color: lemonchiffon;
+        }
+
+        .group1 + div + div {
+            background-color: aqua;
+        }
+
+        .group1 ~ div {
+            box-shadow: -10px 10px 5px 5px black;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="hover">Hover ON Me</button>
+    <button class="focus">Click OR Tab Me</button>
+    <button class="active">Click Me For Active Effect</button>
+
+
+    <p>I'm the first line so i have a pseudo element to bold </br> The lines followed after the first line <br> do not have any pseudo element</p>
+    <p>I'm the first line of the second element so I'm have the pseudo element as well </br>The lines followed after the first line <br> do not have any pseudo element</p>
+
+
+    <a target="_blank" href="https://www.youtube.com/">I'm a link you want to click</a>
+
+    <ul class="list-with-nth-child-class">
+        <li class="myList">1</li>
+        <li class="myList">2</li>
+        <li class="myList">3</li>
+        <li class="myList">4</li>
+        <li class="myList">5</li>
+        <li class="myList">6</li>
+        <li class="myList">7</li>
+        <li class="myList">8</li>
+        <li class="myList">9</li>
+        <li class="myList">10</li>
+        <li class="myList">11</li>
+        <li class="myList">12</li>
+    </ul>
+
+    <span>THIS SPAN HAS BEEN GIVEN EMOJIS WITH CONTENT</span>
+
+    <p class="asia country">Attribute Selector 1</p>
+    <p class="austria country">Attribute Selector 2</p>
+    <p class="australia country">Attribute Selector 3</p>
+    <p class="denmark country">Attribute Selector 4</p>
+    <p class="england country">Attribute Selector 5</p>
+
+    <style>
+       .hover:hover {
+        background-color: black;
+        color:white;
+       }
+
+       .focus:focus {
+        background-color: pink;
+       }
+
+       .active {
+        background-color: blue;
+        color: orange;
+       }
+
+
+       .active:active {
+        background-color: lightblue;
+       }
+
+       a:link {
+        color: green;
+       }
+
+       a:visited {
+        color: black;
+       }
+
+       :root {                          
+        background-color: lightgray;        /* :root(0 1 0 0) has more specificity than html (0 0 0 1)  */     
+       }
+
+       html {           
+        background-color: gold;
+       }
+
+       .myList:nth-child(2n) {
+        color: red;
+       }
+       .myList:nth-child(3n + 1) {
+        color: blue;
+       }
+
+       ul li::marker {
+        color: green;
+        font-size: 10px;
+        content : "🧡"
+       }
+
+       p::first-letter {
+        font-weight: bolder;
+        font-size: 40px;
+       }
+              
+       p::first-line {
+        font-weight: bold;
+        font-size: 20px;
+       }
+
+       span::before {
+        content: "😎"
+       }
+
+       span::after{
+        content: "🥸"
+       }
+
+       [class^="a"] {               /* Selects classes with "a" in their name*/
+        border: 5px solid black
+       }
+
+       [class$="country"] {
+        background-color: burlywood;
+       }
+
+       [class*="try"] {
+        opacity: 0.6;
+       }
+
+    </style>
+</body>
+</html>
