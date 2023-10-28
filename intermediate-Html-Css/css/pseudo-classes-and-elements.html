@@ -37,8 +37,26 @@
     <p class="asia country">Attribute Selector 1</p>
     <p class="austria country">Attribute Selector 2</p>
     <p class="australia country">Attribute Selector 3</p>
-    <p class="denmark country">Attribute Selector 4</p>
+    <p class="estonia country">Attribute Selector 4</p>
     <p class="england country">Attribute Selector 5</p>
+
+    <div class="hello-1 moto"></div>
+    <div class="hello-2 moto" ></div>
+    <div class="hello-3 moto"></div>
+    <div class="hello-4 moto"></div>
+    <div class="hello-5 moto"></div>
+
+    <article>
+        <p>I'm the first p element under article</p>
+        <div>I'm the only div element under article</div>
+        <p>I'm the second p element under article</p>
+        <p>I'm the third p element under article</p>
+        <p>I'm the last p element under article</p>
+    </article>
+
+
+
+    <a href="#" class="arrow">Continue Reading</a>
 
     <style>
        .hover:hover {
@@ -69,7 +87,7 @@
        }
 
        :root {                          
-        background-color: lightgray;        /* :root(0 1 0 0) has more specificity than html (0 0 0 1)  */     
+        background-color: lightgray;        /* :root(0 0 1 0) has more specificity than html (0 0 0 1)  */     
        }
 
        html {           
@@ -107,7 +125,7 @@
         content: "🥸"
        }
 
-       [class^="a"] {               /* Selects classes with "a" in their name*/
+       [class^="e"] {               /* Selects classes with "a" in their name*/
         border: 5px solid black
        }
 
@@ -119,6 +137,69 @@
         opacity: 0.6;
        }
 
+       [class~="moto"] {
+        height : 2rem;
+        width : 2rem;
+        border : 10px dashed green;
+       }
+
+       article > p:first-of-type { 
+        color: yellow;
+        background-color: brown;
+       }
+
+       article > div:only-of-type {
+        color: lightblue;
+        background-color: darkblue;
+       }
+
+       article > p:last-of-type {
+        color: white;
+        background-color: black;
+       }
+
+
+       /* INSANE USE OF PSEUDO ELEMENT BEFORE AND AFTER*/
+
+       .arrow {
+  background: #2db34a;
+  color: #fff;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 12px;
+  position: relative;
+  text-decoration: none;
+}
+.arrow:before,
+.arrow:after {
+  content: "";
+  height: 0;
+  position: absolute;
+  width: 0;
+}
+.arrow:before {
+  border-bottom: 15.5px solid #2db34a;
+  border-left: 15px solid transparent;
+  border-top: 15px solid #2db34a;
+  left: -15px;
+}
+.arrow:after {
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid #2db34a;
+  border-top: 15px solid transparent;
+  right: -14.86px;
+}
+.arrow:hover {
+  background: #ff7b29;
+}
+.arrow:hover:before {
+  border-bottom: 15.5px solid #ff7b29;
+  border-top: 15px solid #ff7b29;
+}
+.arrow:hover:after {
+  border-left: 15px solid #ff7b29;
+}
     </style>
 </body>
 </html>
