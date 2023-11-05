@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Custom Properties Practice</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div>
+        <p></p>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <p></p>
+
+    <style>
+        :root {
+            --width-for-elements: 300px;
+            --height-for-elements: 100px;
+        --color-for-background: blue;
+        }
+
+        div {
+            width: var(--width-for-elements);
+            height: var(--height-for-elements);
+            background-color: var(--color-for-background);
+        }
+
+        p {
+            width: var(--width-for-elements);
+            height: var(--height-for-elements);
+            background-color: var(--color-for-background);
+        }
+    </style>
+</body>
+</html>
