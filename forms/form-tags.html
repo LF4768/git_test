@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+    
+        form {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    </style> -->
+</head>
+<body>
+    <form action="example.com/path" method="post">
+        <fieldset>
+            <legend>Personal Details</legend>
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" placeholder="Your name please" name="first_name">
+            <label for="user_email">Email:</label>
+            <input type="email" id="user_email" name="email" placeholder="example@domain.com">
+            <label for="user_password">Password:</label>
+            <input type="password" id="user_password" name="password" placeholder="Password">
+            <label for="money">Amount:</label>
+            <input type="number" id="money" name="money" placeholder="25">
+            <label for="date_of_birth">Date of Birth:</label>
+            <input type="date" name="date_of_birth" id="date_of_birth">     <!--Date type does not take any placeholder value--> 
+        </fieldset>
+        <fieldset>
+            <legend>Favorite Car</legend>
+        <select name="car">
+            <option value="Mercedes">Mercedes</option>
+            <option value="tesla" selected>Tesla</option>   <!--Selected gives the value to be selected on default to the browser when rendering -->
+            <option value="volvo">Volvo</option>
+            <option value="bmw">BMW</option>
+            <option value="mini">Mini</option>
+            <option value="ford">Ford</option>
+        </select>
+        </fieldset>
+        <fieldset>
+            <legend>Favourite Game</legend>
+            <select name="game">
+                <optgroup label="RPG">
+                    <option value="RDR">RDR</option>
+                    <option value="Last_Of_Us">Last Of Us</option>
+                    <option value="God_of_War">God Of War</option>
+                </optgroup>
+                <optgroup label="Online">
+                    <option value="PUBG">PUBG</option>
+                    <option value="Fall_Guys" selected>Fall Guys</option>
+                    <option value="OPBR">OPBR</option>
+                </optgroup>
+            </fieldset>
+            </select>
+            <fieldset>
+                <legent>Ticket Booking</legent>
+                <h1>Ticket Type</h1>
+                <div>
+                    <input type="radio" id="child" name="ticket_type" value="child">
+                    <label for="child">Child</label>
+                </div>
+                <div>
+                    <input type="radio" id="adult" name="ticket_type" value="adult" checked>
+                    <label for="adult">Adult</label>
+                </div>
+                <div>
+                    <input type="radio" id="senior" name="ticket_type" value="senior">
+                    <label for="senior">Senior</label>
+                </div>
+        </fieldset>
+        <fieldset>
+            <legend>Preffered Pizza Toppings</legend>
+            <h1>Pizza Toppings</h1>
+            <div>
+                <input type="checkbox" name="topping" id="pepperoni" value="peppeoni" checked>
+                <label for="pepperoni">Pepperoni</label>
+            </div>
+            <div>
+                <input type="checkbox" name="topping" id="chicken" value="chicken">
+                <label for="chicken">Chicken</label>
+            </div>
+            <div>
+                <input type="checkbox" name="topping" id="kebab" value="kebab">
+                <label for="kebab">Kebab</label>
+            </div>
+            <div>
+                <input type="checkbox" name="topping" id="cheese" value="cheese">
+                <label for="cheese">Cheese</label>
+            </div>
+            <div>
+                <input type="checkbox" name="topping" id="capsicum" value="capsicum">
+                <label for="capsicum">Capsicum</label>
+            </div>
+        </fieldset>
+        <textarea rows="15" cols="30">Please give your remarks in this box</textarea> 
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+        <button type="button">Button to apply JS on</button>
+    </form> 
+</body>
+</html>
