@@ -19,9 +19,9 @@
         <fieldset>
             <legend>Personal Details</legend>
             <label for="first_name">First Name:</label>
-            <input type="text" id="first_name" placeholder="Your name please" name="first_name">
+            <input type="text" id="first_name" placeholder="Your name please" name="first_name" required>   <!--REQUIRED MAKES IT SO THAT THE FIELD CANNOT BE LEFT EMPTY WHEN SUBMITTING -->
             <label for="user_email">Email:</label>
-            <input type="email" id="user_email" name="email" placeholder="example@domain.com">
+            <input type="email" id="user_email" name="email" placeholder="example@domain.com" multiple>    <!-- MULTIPLE ACCEPTS MULTIPLE VALUES -->
             <label for="user_password">Password:</label>
             <input type="password" id="user_password" name="password" placeholder="Password">
             <label for="money">Amount:</label>
@@ -95,10 +95,97 @@
                 <label for="capsicum">Capsicum</label>
             </div>
         </fieldset>
+        <fieldset>
+            <legend>Newer Tags</legend>
+            <div>
+                <input type="hidden" id="timestamp" name="timestamp" value="1286705410" />  <!-- HIDDEN INPUT TYPE-->
+            </div>
+            <div>
+                <label for="file">Provide Image(less than 50kb):</label>
+                <input type="file" name="file" id="file" accept="image/*" multiple />
+            </div>
+            <div>
+                <label for="search">Input to search something:</label>
+                <input type="search" id="search" name="search" /> 
+            </div>  
+            <div>
+                <label for="tel">Input for mobile number(opens the numpad in mobile itself):</label>
+                <input type="tel" id="tel" name="tel" />    <!--TEL IS FOR MOBILE NUMBERS -->
+            </div>
+            <div>
+                <label for="url">Input for providing URL:</label>
+                <input type="url" id="url" name="url" />    <!--WILL GIVE ERROR IF VALUE DOES NOT HAVE PROTOCOL(https) OR IF URL IS MALFORMED-->
+            </div>
+            <div>
+                <label for="age">Constricted number type(min = 1 and max = 10):</label>
+        <input type="number" name="age" id="age" min="1" max="10" step="2" />
+            </div>
+            <div>
+                <label for="price">Choose a maximum house price: </label>
+                <input
+                type="range"
+                name="price"
+                id="price"
+                min="50000"
+                max="500000"
+                step="100"
+                value="250000" />
+                <output class="price-output" for="price"></output>
+            </div>
+            <div>
+                <label for="datetime">Select the time and date:</label>
+                <input type="datetime-local" name="datetime" id="datetime" />
+            </div>
+            <div>
+                <label for="month">Select the month and year:</label>
+                <input type="month" name="month" id="month" />
+            </div>
+            <div>
+                <label for="time">Select the time:</label>
+                <input type="time" name="time" id="time" />
+            </div>
+            <div>
+                <label for="week">Select the week:</label>
+                <input type="week" name="week" id="week" />
+            </div>
+            <div>
+                <label for="myDate">Constrained Date:</label>
+                <input type="date" name="myDate" min="2013-06-01" max="2013-08-31" step="7" id="myDate" />
+            </div>
+            <div>
+                <label for="color">Select color:</label>
+                <input type="color" name="color" id="color" />
+            </div>
+        </fieldset>
         <textarea rows="15" cols="30">Please give your remarks in this box</textarea> 
-        <button type="reset">Reset</button>
-        <button type="submit">Submit</button>
-        <button type="button">Button to apply JS on</button>
+        <fieldset>
+            <legend>Buttons</legend>
+            <div>
+                <label>Button to reset the whole form back to its default:</label>
+                <button type="reset" style="display:inline-block">Reset</button>
+            </div>
+            <div>
+                <label>Button to submit the form:</label>
+                <button type="submit" style="display:inline-block">Submit</button>
+            </div>
+            <div>
+                <label>Button that does nothing:</label>
+                <button type="button" style="display:inline-block">Button to apply JS on</button>
+            </div>
+            <div>
+                <label style="vertical-align:top;">Image to click to submit the form:</label>
+                <input type="image" alt="Click me!" src="./download.jpeg" width="80" height="100" />     <!-- IMAGE BUTTON WORKS LIKE THE SUBMIT BUTTON -->
+            </div>
+        </fieldset>
     </form> 
+    <script defer>
+        const price = document.querySelector("#price");
+        const output = document.querySelector(".price-output");
+        output.textContent = price.value;
+
+        price.addEventListener("input", () => {
+        output.textContent = price.value;
+        });
+    </script>
 </body>
 </html>
