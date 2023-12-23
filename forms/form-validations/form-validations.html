@@ -1,0 +1,71 @@
+<DOCTYPE>  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validations</title>
+    <style>
+        input[type="email"]:invalid {
+            border: 2px rgb(255, 75, 75) solid;
+            border-radius: 7px;
+        }
+        
+        input[type='email']:valid {
+            border: 2px rgb(92, 237, 92) solid;
+            border-radius:7px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="get">
+        <fieldset>
+            <legend>Minimum Length Validation</legend>
+            <textarea rows='10' cols="15" placeholder="How are you feeling today?" minlength="4"></textarea>
+        </fieldset>
+        <fieldset>
+            <legend>Maximum Length Validation</legend>
+            <textarea rows="10" cols="20" placeholder="Don't express yourself too much, nobody cares!" maxlength="20"></textarea>
+        </fieldset>
+        <fieldset>
+            <legend>Minimum and Maximum Length Validation</legend>
+            <textarea rows="15" cols="15" placeholder="Don't express yourself too little or too much!" minlength="5" maxlength="50"></textarea>
+        </fieldset>
+        <fieldset>
+            <legend>Min Validation</legend>
+            <label for="min-quantity">Please Choose a Number(Greater Than 5):</label>
+            <input id="min-quantity"
+                   name="min-quantity"
+                   type="number"
+                   min="5" />
+        </fieldset>
+        <fieldset>
+            <legend>Max Validation</legend>
+            <label for="max-quantity">Please Choose a Number(Less Than 105):</label>
+            <input id="max-quantity"
+                   name="max-quantity"
+                   type="number"
+                   max="105" />
+        </fieldset>
+        <fieldset>
+            <legend>Pattern Validation</legend>
+            <label for="zip-code">Please Enter Your Area Zip Code:</label>
+            <input id="zip-code"
+                   name="zip-code"
+                   type="text"
+                   pattern="(\d{5}([\-]\d{4})?)"
+                   title="Please enter a valid zip code, example:45453"
+                   placeholder="45453" />
+        </fieldset>
+        <fieldset>
+            <legend>CSS Validation</legend>
+            <label for="email">Please enter your email:</label>
+            <input id="email"
+                   name="email"
+                   type="email" 
+                   placeholder="john@example.com"
+                   required />
+        </fieldset>
+        <button type="submit">Submit Form</button>
+    </form>
+</body>
+
+</html>

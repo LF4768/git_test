@@ -4,28 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <style>
-    
-        form {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-        }
-    </style> -->
-</head>
+    <link rel="stylesheet" href="./form-css.css">
+</head> 
 <body>
-    <form action="example.com/path" method="post">
+    <form action="example.com/path" method="post">  
         <fieldset>
             <legend>Personal Details</legend>
-            <label for="first_name">First Name:</label>
-            <input type="text" id="first_name" placeholder="Your name please" name="first_name" required>   <!--REQUIRED MAKES IT SO THAT THE FIELD CANNOT BE LEFT EMPTY WHEN SUBMITTING -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Your name please" name="name" required>   <!--REQUIRED MAKES IT SO THAT THE FIELD CANNOT BE LEFT EMPTY WHEN SUBMITTING -->
             <label for="user_email">Email:</label>
             <input type="email" id="user_email" name="email" placeholder="example@domain.com" multiple>    <!-- MULTIPLE ACCEPTS MULTIPLE VALUES -->
             <label for="user_password">Password:</label>
-            <input type="password" id="user_password" name="password" placeholder="Password">
+            <input type="password" id="user_password" name="password" placeholder="Password" required>
             <label for="money">Amount:</label>
-            <input type="number" id="money" name="money" placeholder="25">
+            <input type="number" id="money" name="money" placeholder="25" required>
             <label for="date_of_birth">Date of Birth:</label>
             <input type="date" name="date_of_birth" id="date_of_birth">     <!--Date type does not take any placeholder value--> 
         </fieldset>
@@ -42,19 +34,19 @@
         </fieldset>
         <fieldset>
             <legend>Favourite Game</legend>
-            <select name="game">
+            <select class="select-wrapper" id="game" name="game" multiple size="4">
                 <optgroup label="RPG">
-                    <option value="RDR">RDR</option>
+                    <option value="RDR" selected>RDR</option>
                     <option value="Last_Of_Us">Last Of Us</option>
                     <option value="God_of_War">God Of War</option>
                 </optgroup>
                 <optgroup label="Online">
                     <option value="PUBG">PUBG</option>
-                    <option value="Fall_Guys" selected>Fall Guys</option>
+                    <option value="Fall_Guys">Fall Guys</option>
                     <option value="OPBR">OPBR</option>
                 </optgroup>
-            </fieldset>
-            </select>
+           </select>
+        </fieldset>
             <fieldset>
                 <legent>Ticket Booking</legent>
                 <h1>Ticket Type</h1>
@@ -91,7 +83,7 @@
                 <label for="cheese">Cheese</label>
             </div>
             <div>
-                <input type="checkbox" name="topping" id="capsicum" value="capsicum">
+                <input type="checkbox" name="topping" id="capsicum" value="capsicum" disabled>
                 <label for="capsicum">Capsicum</label>
             </div>
         </fieldset>
@@ -100,7 +92,7 @@
             <div>
                 <input type="hidden" id="timestamp" name="timestamp" value="1286705410" />  <!-- HIDDEN INPUT TYPE-->
             </div>
-            <div>
+            <div>   
                 <label for="file">Provide Image(less than 50kb):</label>
                 <input type="file" name="file" id="file" accept="image/*" multiple />
             </div>
@@ -117,8 +109,8 @@
                 <input type="url" id="url" name="url" />    <!--WILL GIVE ERROR IF VALUE DOES NOT HAVE PROTOCOL(https) OR IF URL IS MALFORMED-->
             </div>
             <div>
-                <label for="age">Constricted number type(min = 1 and max = 10):</label>
-        <input type="number" name="age" id="age" min="1" max="10" step="2" />
+                <label for="age">Constricted number type(min = 1 and max = 50):</label>
+        <input type="number" name="age" id="age" min="1" max="50" step="2" />
             </div>
             <div>
                 <label for="price">Choose a maximum house price: </label>
@@ -156,8 +148,31 @@
                 <label for="color">Select color:</label>
                 <input type="color" name="color" id="color" />
             </div>
+            <div>
+                <label>Use of Meters:</label>
+                <meter min="0" max="100" value="23" low="33" high="66" optimum="0">75</meter>
+            </div>
+            <div>
+                <label>Use of Progress Bars:</label>
+                <progress max="100" value="33">33/100</progress>
+            </div>
         </fieldset>
-        <textarea rows="15" cols="30">Please give your remarks in this box</textarea> 
+        <textarea rows="15" cols="30" wrap="soft" placeholder="Please give your remarks in this box!" style="resize:horizontal;"></textarea> 
+        <fieldset>
+            <legend>Important Tag</legend>
+            <div>
+                <label for="myAnime">What is your favouriite anime?:</label>
+                <input type="text" id="myAnime" name="myAnime" list="options">
+                <datalist id="options">
+                   <option>Dragon Ball Z</option>
+                   <option>One Piece</option>
+                   <option>Berserk</option>
+                   <option>Demon Slayer</option>
+                   <option>Naruto</option>
+                   <option>Death Note</option>
+                </datalist>
+            </div>
+        </fieldset>
         <fieldset>
             <legend>Buttons</legend>
             <div>
@@ -181,7 +196,7 @@
     <script defer>
         const price = document.querySelector("#price");
         const output = document.querySelector(".price-output");
-        output.textContent = price.value;
+        output.textContent = price.value; 
 
         price.addEventListener("input", () => {
         output.textContent = price.value;

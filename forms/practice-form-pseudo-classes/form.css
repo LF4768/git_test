@@ -1,0 +1,107 @@
+:root {
+    height: 100vh;
+    display: flex;  
+    justify-content: center;
+    align-items:center;
+}
+
+label, input {
+    width: 100%;
+    height: 20px;
+    margin-top:8px;
+}
+
+input {
+    border-radius: 5px;
+}
+
+input:hover {
+    background-color: lightgray;
+}
+
+label {
+    margin-left:2px;
+    font-weight: 500;
+}
+
+fieldset {
+    height:350px;
+    padding:25px;
+}
+
+input:required {
+    border: 2px inset black;
+}
+  
+input:optional {
+    border: 1px solid silver;
+}
+
+
+fieldset > div {
+    margin-bottom: 20px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+input + span {
+    position: relative;
+}
+
+input:optional {
+    border: 2px inset silver;
+}
+
+input:required + span::after {
+font-size: 0.7rem;
+position: absolute;
+content: "required";
+color: white;
+background-color: black;
+font-weight:600;   
+padding: 5px 10px;
+top: -53px;
+left: 405px;
+}
+
+.button {
+    width:100%;
+    text-align:center;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    width: 50%;
+    padding:5px;
+    font-weight:bold;
+}
+
+
+input + span {
+    position: relative;
+}
+
+input + span::before {
+position: absolute;
+left: 480px;
+top: -25px;
+}
+
+input:valid {
+    border: 2px solid green;
+}
+
+input:invalid {
+border: 2px solid red;
+}
+
+input:invalid + span::before {
+content: "✖";
+color: red;
+}
+
+input:valid + span::before {
+content: "✓";
+color: green;
+}

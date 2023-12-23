@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./form.css"> 
+</head>
+<body>
+    <form>
+        <fieldset>
+          <legend>Feedback form</legend>
+          <p>Required fields are labeled with "required".</p>
+          <div>
+            <label for="fname">First name: </label>
+            <input id="fname" name="fname" type="text" required />
+            <span></span>
+          </div>
+          <div>
+            <label for="lname">Last name: </label>
+            <input id="lname" name="lname" type="text" required />
+            <span></span>
+          </div>
+          <div>
+            <label for="email">
+              Email address (include if you want a response):
+            </label>
+            <input id="email" name="email" type="email" />
+          </div>
+          <div class="button"><button>Submit</button></div>
+        </fieldset>
+      </form>
+</body>
+</html>
