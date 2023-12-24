@@ -126,3 +126,11 @@ input[type="radio"]:checked + label::before {
   transform: translate(3px, 3px) scale(1);
   transition: all 0.3s cubic-bezier(0.25, 0.25, 0.56, 2);
 }
+
+input[type='password']::placeholder {
+  color: blue;
+}
+
+input[type='email']::placeholder {
+  color:rgb(234, 94, 94);
+}
