@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'norsebold';
+    src: url('./fonts/norse-bold-webfont.woff2') format('woff2'),
+         url('./fonts/norse-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 :root {
     margin: 0px;
     padding: 0px;
@@ -7,4 +15,47 @@
 
 body{
     display: flex;
+}
+
+.left-pane-photo {
+    width: 80%;
+    height: 100%;   
+}
+
+.image-logo {
+    height: 80%;
+    width: 13%;
+}
+
+.left-pane {
+    position: relative;
+}
+
+.credits {
+    color: white;
+    position: absolute;
+    bottom:10px;
+    left: 13rem;
+}
+
+a {
+    color: white;
+}
+
+.logo {
+    font-family: 'norsebold';   
+    font-size: 80px;
+
+    width: 80%;
+    height: 15%;
+    color: white;
+    background-color: darkblue;
+
+    position: absolute;
+    top: 17rem;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
