@@ -20,13 +20,13 @@
 
 
     <div class="right-pane">
-       <p>This is not a real online service! You know you need something<br/> like this in your life to help you realize your deepest dreams.<br/> 
+       <p class="starting-text">This is not a real online service! You know you need something<br/> like this in your life to help you realize your deepest dreams.<br/> 
         Sign up <i>now</i> to get started.<br/><br/>    
         You <i>know</i> you want to.</p>
 
         <form>
             <div class="information">
-                <p>Let's do this!</p>
+                <p class="form-start-text">Let's do this!</p>
                 <fieldset>
                     <div class="first-name">
                         <label for="first-name">FIRST NAME</label>
@@ -58,18 +58,21 @@
                     </div>        
                 </fieldset>
                 <fieldset>
-                    <div class="password">
+                    <div class="password-creation">
                         <label for="password">PASSWORD</label>
                         <input id="password"
                                name="password"
                                type="password"
+                               class="error"
                                required/>
+                        <p class="password-match">* Passwords do not match</p>
                     </div>
-                    <div class="confirm-password">
+                    <div class="confirm-password ">
                         <label for="confirm-password">CONFIRM PASSWORD</label>
                         <input id="confirm-password"
                                name="confirm-password"
                                type="password"
+                               class="error"
                                required/>
                     </div>
                 </fieldset>

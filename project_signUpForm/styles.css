@@ -16,6 +16,7 @@ body{
     display: flex;
     flex: auto;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    background-color: rgba(233, 233, 233, 0.431);
 }
 
 .left-pane-photo {
@@ -72,7 +73,7 @@ a {
     display:flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgba(233, 233, 233, 0.431);
+    margin-top: 3rem;
 }
 
 span {
@@ -83,14 +84,16 @@ span {
 fieldset {
     display: flex;
     justify-content: space-between;
-    width: 60%;
+    width: 70%;
+    margin-left: 1rem;
+    border: none;
 }
 
 .first-name, 
 .last-name,
 .email,
 .phone-number,
-.password,
+.password-creation,
 .confirm-password {
     display: flex;
     flex-direction:column;
@@ -100,6 +103,7 @@ fieldset {
     background-color: white;
     padding: 20px;
     box-shadow: 0 3px 3px rgb(184, 184, 184);
+    height: 60%;
 }
 
 .submission {
@@ -108,7 +112,7 @@ fieldset {
 }
 
 button {
-    width:87%;
+    width:85%;
     font-size:14px;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     padding:12px;
@@ -124,4 +128,58 @@ button {
 .account {
     font-size: 15px;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.starting-text {
+    font-size: 23px;
+    line-height: 26px;
+    font-weight: bold;
+    margin-left: 3rem;    
+    margin-bottom: 4rem;
+}
+
+.form-start-text {
+    font-weight: bold;
+    margin-left: 2rem;
+    font-size: 23px;
+    margin-top: 0;
+    margin-bottom: 16px;
+
+}
+
+
+label {
+    font-size: 10px;
+    font-weight: bold;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+    margin-bottom: 1px;
+}
+
+input {
+    width: 250px;
+    height: 25px;
+    background-color: rgba(227, 226, 226, 0.102);
+    border: 1.4px solid #E5E7EB;
+    border-radius: 4px;
+}
+
+input:focus {
+    outline: none;  
+    border: 1.5px solid rgba(0, 0, 255, 0.776);
+    box-shadow: 1px 2px 4px rgba(0, 0, 255, 0.282);
+}
+
+.error {
+    border: 1px solid red;
+}
+
+.password-match {
+    margin:0px;
+    color: red;
+    font-size: 10px;
+}
+
+.correct {
+    color: white;
 }
