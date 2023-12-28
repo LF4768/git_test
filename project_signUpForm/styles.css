@@ -24,11 +24,6 @@ body{
     height: 100%;   
 }
 
-.image-logo {
-    height: 80%;
-    width: 13%;
-}
-
 .left-pane {
     position: relative;
     width:60%;
@@ -36,7 +31,7 @@ body{
 
 .credits {
     width: 100%;
-    color: white;
+    color: black;
     position: absolute;
     bottom:10px;
     display: flex;
@@ -45,7 +40,7 @@ body{
 }
 
 a {
-    color: white;
+    color: black;
     margin: 0 3px 0 3px;
 }
 
@@ -54,9 +49,9 @@ a {
     font-size: 80px;
 
     width: 100%;
-    height: 15%;
+    height: 13%;
     color: white;
-    background-color: darkblue;
+    background-color: rgba(0, 0, 0, 0.449);
 
     position: absolute;
     top: 13rem;
@@ -65,6 +60,11 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.image-logo {
+    height: 80%;
+    width: 13%;
 }
 
 .right-pane {
@@ -122,12 +122,21 @@ button {
     margin-bottom:10px;
     font-weight:bold;
     color:white;
-    background-color:#596D48
+    background-color:#596D48;
+}
+
+button:active {
+    background-color:#718064 ;
+}
+
+button:disabled {
+    background-color: rgb(161, 161, 161);
 }
 
 .account {
     font-size: 15px;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    width: 100vh;
 }
 
 .starting-text {
@@ -182,4 +191,6 @@ input:focus {
 
 .correct {
     color: white;
+    margin:0px;
+    font-size: 10px;
 }

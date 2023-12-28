@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="left-pane">
-        <img src="./image/halie-west-UWni0vqQotc-unsplash.jpg" alt="Photo of Stars" class='left-pane-photo'>
+        <img src="./image/olena-bohovyk-r0M9HrfJMBM-unsplash.jpg" alt="Photo of leaf" class='left-pane-photo'>
         <div class="logo">
            <img src="./image/odin-lined.png" alt="Logo" class="image-logo">ODIN
         </div>
@@ -24,7 +24,7 @@
         Sign up <i>now</i> to get started.<br/><br/>    
         You <i>know</i> you want to.</p>
 
-        <form>
+        <form method="get" action="">
             <div class="information">
                 <p class="form-start-text">Let's do this!</p>
                 <fieldset>
@@ -32,8 +32,7 @@
                         <label for="first-name">FIRST NAME</label>
                         <input id="first-name"
                                name="first-name"
-                               type="text"
-                               required/>
+                               type="text"/>
                     </div>
                     <div class="last-name">
                         <label for="last-name">LAST NAME</label>
@@ -48,13 +47,16 @@
                         <input id="email"
                                name="email"
                                type="email"
-                               required/>
+                               autocomplete="email"/>
                     </div>
                     <div class="phone-number">
                         <label for="phone-number">PHONE NUMBER</label>
                         <input id="phone-number"
                                name="phone-number"
-                               type="number"/>
+                               type="text"
+                               autocomplete="tel"
+                               pattern="[789][0-9]{9}"
+                               oninvalid="this.setCustomValidity('Please enter 10 digits and start with 7,8 or 9')"/>
                     </div>        
                 </fieldset>
                 <fieldset>
@@ -78,7 +80,7 @@
                 </fieldset>
             </div>
             <div class="submission">
-                <button type="submit">Create Account</button> 
+                <button type="submit" disabled>Create Account</button> 
                 <p class="account">Already have an account? <span>Log in</span></p>
             </div>
         </form>
