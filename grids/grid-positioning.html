@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Positioning</title>
+    <style>
+        .container1 {
+            display: inline-grid;
+            grid-template: 40px 40px 40px 40px 40px / 40px 40px 40px 40px 40px;
+            background-color: lightblue;
+            margin: 100px;
+        }
+        .room {
+            border: 1px solid;
+            font-size: 50%;
+            text-align: center;
+        }
+        #living-room1 {
+            grid-area: 1 / 1 / 3 / 6;     /* row-start/ column-start/ row-end / column-end */
+        }
+        #bathroom1 {
+            grid-row-start: 3;
+            grid-row-end: 6;
+            grid-column: 3 / 4;
+        }
+        #kitchen1 {
+            grid-column-start: 4;
+            grid-column-end: 6;
+            grid-row-start: 3;
+            grid-row-end: 6;
+        }
+        #closet1 {
+            grid-row-start: 5;
+            grid-row-end: 6;
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+        #bedroom1 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 3;
+            grid-row-end: 5;
+        }
+
+        .container2 {
+            display: inline-grid;
+            grid-template: 40px 40px 40px 40px 40px / 40px 40px 40px 40px 40px;
+            background-color: lightblue;
+            margin: 100px;
+            grid-template-areas:
+            "living-room2 living-room2 living-room2 living-room2 living-room2"
+            "living-room2 living-room2 living-room2 living-room2 living-room2"
+            "bedroom2 bedroom2 bathroom2 kitchen2 kitchen2"
+            "bedroom2 bedroom2 bathroom2 kitchen2 kitchen2"
+            "closet2 closet2 . . ."
+        }
+        #living-room2 {
+            grid-area: living-room2;
+        }
+        #bathroom2 {
+            grid-area: bathroom2;
+        }
+        #kitchen2 {
+            grid-area: kitchen2;
+        }
+        #closet2 {
+            grid-area:closet2;
+        }
+        #bedroom2 {
+            grid-area: bedroom2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container1"> 
+        <div class="room" id="living-room1">Living room</div>
+        <div class="room" id="kitchen1">Kitchen</div>
+        <div class="room" id="bedroom1">Bedroom</div>
+        <div class="room" id="bathroom1">Bathroom</div>
+        <div class="room" id="closet1">Closet</div>
+    </div>
+    <div class="container2"> 
+        <div class="room" id="living-room2">Living room2</div>
+        <div class="room" id="kitchen2">Kitchen2</div>
+        <div class="room" id="bedroom2">Bedroom2</div>
+        <div class="room" id="bathroom2">Bathroom2</div>
+        <div class="room" id="closet2">Closet2</div>
+    </div>
+</body>
+</html>
