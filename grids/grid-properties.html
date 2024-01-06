@@ -9,8 +9,12 @@
             display: grid;
             grid-template-columns: repeat(2, [col-start] 500px [col-end]);
             grid-template-rows: repeat(2, 40px);
+            height: 400px;
             margin-bottom:20px;
             background-color: lightblue;
+            grid-auto-columns: 50px;
+            grid-auto-rows: 50px;
+            grid-auto-flow: column;
         }
         .container > div {
          border: 2px solid black;
@@ -95,6 +99,60 @@
         .item24 {
             place-self: stretch;            /* If second value is omitted, first value taken for both*/
         }
+        .box7 {
+            justify-items: start;
+            align-items: start;
+            justify-content: end;
+            align-content:end;
+        }
+        .box8 {
+            justify-items: end;
+            align-items: end;
+        }
+        .box9 {
+            justify-items: center;
+            align-items: center;
+        }
+
+        .box10 {
+            justify-items: baseline;
+            align-items: baseline;
+        }
+        .box11 {
+            grid-template-columns: max-content;
+            place-items: center center;                     /* Align-Items / Justify-Items */
+        }
+        .box12 {
+            grid-template-columns: min-content;             /* Here min-content is "item" */
+            place-items: center;          /* If one value is omitted, the single value is taken for both*/
+        }
+        .box13 {
+            justify-content: start;
+            align-content: start;
+        }
+        .box14 {
+            justify-content: end;
+            align-content: end;
+        }
+        .box15 {
+            justify-content: center;
+            align-content: center;
+        }
+        .box16 {
+            justify-content: stretch;
+            align-content: stretch;
+        }
+        .box17 {
+            justify-content: space-around;
+            align-content: space-around;
+        }
+        .box18 {
+            align-content: space-between;
+            justify-content: space-between;
+        }
+        .box19 {
+            place-content: space-evenly  space-evenly;              /* align-content justify-content (if one omitted than value used for both)*/
+        }
     </style>
 </head>
 <body>
@@ -139,6 +197,78 @@
         <div class="item26">item 26</div>
         <div class="item27">item 27</div>
         <div class="item28">item 28</div>
+    </div>
+    <div class="container box8">
+        <div class="item29">item 29</div>
+        <div class="item30">item 30</div>
+        <div class="item31">item 31</div>
+        <div class="item32">item 32</div>
+    </div>
+    <div class="container box9">
+        <div class="item33">item 33</div>
+        <div class="item34">item 34</div>
+        <div class="item35">item 35</div>
+        <div class="item36">item 36</div>
+    </div>
+    <div class="container box10">
+        <div class="item37">item 37</div>
+        <div class="item38">item 38</div>
+        <div class="item39">item 39</div>
+        <div class="item40">item 40</div>
+    </div>
+    <div class="container box11">
+        <div class="item41">item 41</div>
+        <div class="item42">item 42</div>
+        <div class="item43">item 43</div>
+        <div class="item44">item 44</div>
+    </div>
+    <div class="container box12">
+        <div class="item45">item 45</div>
+        <div class="item46">item 46</div>
+        <div class="item47">item 47</div>
+        <div class="item48">item 48</div>
+    </div>
+    <div class="container box13">
+        <div class="item49">item 49</div>
+        <div class="item51">item 50</div>
+        <div class="item51">item 51</div>
+        <div class="item52">item 52</div>
+    </div>
+    <div class="container box14">
+        <div class="item53">item 53</div>
+        <div class="item54">item 54</div>
+        <div class="item55">item 55</div>
+        <div class="item56">item 56</div>
+    </div>
+    <div class="container box15">
+        <div class="item57">item 57</div>
+        <div class="item58">item 58</div>
+        <div class="item59">item 59</div>
+        <div class="item60">item 60</div>
+    </div>
+    <div class="container box16">
+        <div class="item61">item 61</div>
+        <div class="item62">item 62</div>
+        <div class="item63">item 63</div>
+        <div class="item64">item 64</div>
+    </div>
+    <div class="container box17">
+        <div class="item65">item 65</div>
+        <div class="item66">item 66</div>
+        <div class="item67">item 67</div>
+        <div class="item68">item 68</div>
+    </div>
+    <div class="container box18">
+        <div class="item69">item 69</div>
+        <div class="item70">item 70</div>
+        <div class="item71">item 71</div>
+        <div class="item72">item 72</div>
+    </div>
+    <div class="container box19">
+        <div class="item73">item 73</div>
+        <div class="item74">item 74</div>
+        <div class="item75">item 75</div>
+        <div class="item76">item 76</div>
     </div>
 </body>
 </html>
