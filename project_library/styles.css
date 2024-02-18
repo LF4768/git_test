@@ -1,3 +1,74 @@
+html {  
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.container   {
+    width: 1600px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 200px);
+    grid-auto-flow: row;
+}
+
+.card {
+    background-color: yellow;
+    height: 180px;
+    padding: 20px;
+}
+
 li::marker {
     content: none;
+}
+
+
+dialog {
+    width: 50%;
+    height: 80%;
+}
+
+form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+fieldset {
+    border: none;
+    width: 40%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+legend {
+    margin: 20px;
+    font-weight: bold;
+}
+
+
+fieldset > div {
+    width: 100%; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.radio-buttons {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
 }

@@ -8,7 +8,36 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+    <h1>Welcome To The Library</h1>
     <div class="container">
     </div>
+    <dialog>
+        <form method="dialog">
+            <fieldset>
+                <legend>ENTER DETAILS FOR THE NEW BOOK</legend>
+                <div>
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title">
+                </div>
+                <div>
+                    <label for="author">Author:</label>
+                    <input type="text" name="author" id="author">  
+                </div> 
+                <div>
+                    <label for="number-of-pages">Number Of Pages:</label>
+                    <input type="number" name="number-of-pages" id="number-of-pages">  
+                </div> 
+                <div>
+                    <label for="status">Status:</label>
+                    <div class="radio-buttons">
+                            <input type="radio" name="status" id="radio-read" value="read">Read
+                            <input type="radio" name="status" id="radio-unread" value="unread" checked>Unread
+                    </div>
+                </div> 
+            </fieldset>
+            <button type="submit" id="submit">Click Here To Submit</button>
+        </form>
+    </dialog>
+    <button>Add New Book</button>
 </body>
 </html>
