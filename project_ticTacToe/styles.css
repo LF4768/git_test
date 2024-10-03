@@ -1,0 +1,96 @@
+.main {
+    height: 100vh;
+    background-color: #161618;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.container {
+    height: 70%;
+    width: 50%;
+    display:grid;
+    justify-content: center;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.container > div {
+    display: flex;
+    justify-content: center;
+    align-items:start;
+}
+
+.box-1 {
+    border-right:2px rgb(174, 166, 166) solid;
+    border-bottom:2px rgb(174, 166, 166) solid;
+    border-radius: 5px;
+}
+
+
+
+.box-2 {
+    border-left:2px rgb(174, 166, 166) solid;
+    border-right:2px rgb(174, 166, 166) solid;
+    border-bottom:2px rgb(174, 166, 166) solid;
+    border-radius: 5px;
+}
+
+
+.box-3 {
+    border-left:2px rgb(174, 166, 166) solid;
+    border-bottom:2px rgb(174, 166, 166) solid;
+    border-radius: 5px;
+}
+
+
+.box-4 {
+    border-right:2px rgb(174, 166, 166) solid;
+    border-top:2px rgb(174, 166, 166) solid;
+    border-bottom:2px rgb(174, 166, 166) solid;
+    border-radius: 5px;
+}
+
+
+.box-5 {
+    border:2px rgb(174, 166, 166) solid;
+    border-radius: 5px;
+}
+
+
+.box-6 {
+    border-left:2px rgb(174, 166, 166) solid;
+    border-bottom:2px rgb(174, 166, 166)black solid;
+    border-top: 2px rgb(174, 166, 166) solid;
+    border-radius: 5px;
+}
+
+
+.box-7 {
+    border-right:2px rgb(174, 166, 166) solid;
+    border-top:2px rgb(174, 166, 166) solid;
+    border-radius: 5px;
+}
+
+
+.box-8 {
+    border-right:2px rgb(174, 166, 166) solid;
+    border-top:2px rgb(174, 166, 166) solid;
+    border-left:2px rgb(174, 166, 166) solid;
+    border-radius: 5px;
+}
+
+
+.box-9 {
+    border-left:2px rgb(174, 166, 166) solid;
+    border-top:2px rgb(174, 166, 166) solid;
+    border-radius: 5px;
+}
+
+img {
+    height: 170px;
+    width: auto;
+}
