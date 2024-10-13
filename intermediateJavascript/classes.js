@@ -422,3 +422,109 @@ speak(); // global object (in non–strict mode)
 
 const eat = Animal.eat;
 eat(); // global object (in non-strict mode)
+
+const date = new Date("January 19, 1975 23:15:30");
+console.log(date.getDate() + " - " + date.getMonth() +" - " + date.getFullYear())
+
+class DateFormatter extends Date {
+    getFormattedDate() {
+    const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+    ];
+    return `${this.getDate()}-${months[this.getMonth()]}-${this.getFullYear()}`;
+}
+}
+
+console.log(new DateFormatter('August 19, 1975 23:15:30').getFormattedDate());
+// Expected output: "19-Aug-1975"
+
+
+function OldStyleClass() {
+    this.someProperty = 1;
+}
+
+OldStyleClass.prototype.randomShit = function() {};
+
+class ChildClass extends OldStyleClass {}
+
+class ModernClass {
+    someProperty = 1;
+    someMethod() {}
+}
+
+class AnotherChildClass extends ModernClass {}
+
+function invalidClass() {};
+
+invalidClass.prototype = 3;
+
+// class invalidExtends extends invalidClass {}     // Uncaught TypeError: Class extends value does not have valid prototype property 3
+
+
+class Parent {};
+class Child extends Parent {};
+
+console.log(Object.getPrototypeOf(Child) === Parent)
+console.log(Object.getPrototypeOf(Child.prototype) === Parent.prototype)
+
+
+class SomeClass extends class {                             // Anonymous class looknin ahh way of writing
+    constructor() {
+        console.log("Base Class");
+    }
+} {
+    constructor() {
+        super();
+        console.log("Derived Class");
+    }
+}
+
+new SomeClass;  
+
+// Another (Easier to understand) Way of writing the SomeClass Code
+
+class Anonymous {
+    constructor() {
+        console.log("Base Class")
+    }
+}
+
+class SomeClass2 extends Anonymous {
+    constructor() {
+        super();
+        console.log("Derived Class")
+    }
+}
+
+new SomeClass2
+
+
+class returnTest {
+    constructor() {
+        return 1;
+    }
+}
+
+console.log(new returnTest())       // Does not return 1
+
+class returnTestChild extends returnTest {
+    constructor() {
+        super();
+        return 1;
+    }
+}
+
+
+// console.log(new returnTestChild())     //Uncaught TypeError: Derived constructors may only return object or undefined
+
