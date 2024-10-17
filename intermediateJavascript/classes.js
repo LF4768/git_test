@@ -528,3 +528,287 @@ class returnTestChild extends returnTest {
 
 // console.log(new returnTestChild())     //Uncaught TypeError: Derived constructors may only return object or undefined
 
+const petAnimal = {
+    speak() {
+        console.log(`${this.name} makes a noise.`)
+    }
+}
+
+class Dog {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+Object.setPrototypeOf(Dog.prototype, petAnimal);        // Inheriting a regular ass object
+
+const dog = new Dog("Daisy");
+dog.speak();
+
+class ClassWithPrivateField {
+    #privateField;
+  
+    constructor() {
+//      delete this.#privateField; // Syntax error
+//      this.#undeclaredField = 42; // Syntax error
+    }
+  }
+  
+  const instance = new ClassWithPrivateField();
+//   instance.#privateField; // Syntax error
+
+class C {
+    #x;
+    static getX(obj) {
+        return obj.#x;
+    }
+}
+
+class B {
+    #x;
+}
+
+let c = new C();
+console.log(c)      // #x : undefined
+
+let b = new B();
+
+//console.log(C.getX({}))  // TypeError: Cannot read private member #x from an object whose class did not declare it
+// console.log(C.getX(b))  // TypeError: Cannot read private member #x from an object whose class did not declare it
+
+class inOperator {
+    #x;
+
+    constructor(x) {
+        this.#x = x;
+    }
+    static getX(obj) {
+        if(#x in obj) return obj.#x;
+
+        return "Obj must be an instance in C";
+    }
+}
+
+let inOperatorObject = new inOperator(10); 
+
+
+console.log(inOperator.getX(new inOperator("Hello")));
+console.log(inOperator.getX(new inOperator(0.195)));
+console.log(inOperator.getX(new inOperator(new Date())));
+console.log(inOperator.getX(inOperatorObject))
+console.log(inOperator.getX(b))
+
+
+class ClassWithPrivateFieldTheReturn {
+    #privateField;
+    constructor() {
+        this.#privateField = 42;
+    }
+}
+class Subclass extends ClassWithPrivateFieldTheReturn {
+    #subPrivateField;
+
+    constructor() {
+        super();
+        this.#subPrivateField = 23;
+    }
+}
+console.log(new Subclass()); // In some dev tools, it shows Subclass {#privateField: 42, #subPrivateField: 23}
+
+class Stamper extends class {
+    constructor(obj) {
+        return obj;
+    }   
+} {
+    #stamp = 42;
+    static getStamp(obj) {
+        return obj.#stamp
+    }
+}
+
+const objStamper = {};
+
+new Stamper(objStamper)
+
+console.log(objStamper)
+console.log(Stamper.getStamp(objStamper))
+console.log(objStamper instanceof Stamper)
+
+new Stamper(obj); // Error: Initializing an object twice is an error with private fields
+
+// This Stamper thing is not advisible to do
+
+class ClassWithPrivateStaticField {
+    static #privateStaticField = 50;
+    static publicStaticMethod() {
+        return ClassWithPrivateStaticField.#privateStaticField;
+    }
+}
+console.log(ClassWithPrivateStaticField.publicStaticMethod()); // 42
+
+class ClassWithPrivateMethod {
+    #privateMethod() {
+        return 100;
+    }
+
+    publicMethod() {
+        return this.#privateMethod();
+    }
+}
+
+class ClassWithStaticPrivateMethod {
+    static #privateMethod() {
+        return 100;
+    }
+
+    publicMethod() {
+        return ClassWithStaticPrivateMethod.#privateMethod();
+    }
+}
+
+const objectWithPrivateMethod = new ClassWithPrivateMethod();
+console.log(objectWithPrivateMethod.publicMethod())
+
+
+const objectWithStaticPrivateMethod = new ClassWithStaticPrivateMethod();
+console.log(objectWithStaticPrivateMethod.publicMethod())
+
+
+
+
+class ClassWithPrivateAccessor {
+    #message;
+    get #decoratedMessage() {
+        return `🎬${this.#message}🛑`;
+    }
+    set #decoratedMessage(msg) {
+        this.#message = msg;
+    }
+    constructor() {
+        this.#decoratedMessage = "hello world";
+        console.log(this.#decoratedMessage);
+    }
+}
+
+new ClassWithPrivateAccessor(); 
+
+
+
+class PrivateConstructor {
+    static #isInternalConstructing = false;
+
+    constructor() {
+        if (!PrivateConstructor.#isInternalConstructing) {
+        throw new TypeError("PrivateConstructor is not constructable");
+        }
+        PrivateConstructor.#isInternalConstructing = false;
+        // More initialization logic
+    }
+
+    static create() {
+        PrivateConstructor.#isInternalConstructing = true;
+        const instance = new PrivateConstructor();
+        return instance;
+    }          
+}
+
+// new PrivateConstructor(); // TypeError: PrivateConstructor is not constructable
+PrivateConstructor.create(); // PrivateConstructor {}
+
+
+
+// What is Static and uses!!!!
+
+
+// Static Properties are used when you dont want to replicate data
+
+class ClassWithStaticField {
+    static id = 5;
+    getId() {
+        console.log(ClassWithStaticField.id);
+    }
+}
+
+const instanceWithStaticField  = new ClassWithStaticField;
+instanceWithStaticField.getId();
+
+class ClassWithStaticFields {
+    static staticField;
+    static staticFieldWithInitializer = "static field";
+}
+
+class SubClassWithStaticField extends ClassWithStaticFields {
+    static subStaticField = "subclass field";
+}
+
+console.log(Object.hasOwn(ClassWithStaticFields, "staticField"))
+console.log(ClassWithStaticFields.staticField)
+console.log(ClassWithStaticFields.staticFieldWithInitializer)
+console.log(SubClassWithStaticField.staticFieldWithInitializer)
+console.log(SubClassWithStaticField.subStaticField)
+
+
+class ClassHavingStaticField {
+    static baseStaticField = "base static field"
+    static anotherBaseStaticField = this.baseStaticField;
+
+    static baseStaticMethod() {
+        return "base Static Method Output";
+    }
+}
+
+class SubClassHavingStaticField extends ClassHavingStaticField {
+    static baseStaticField = "child static field";
+    static subStaticField = super.baseStaticMethod();
+}
+
+console.log(ClassHavingStaticField.anotherBaseStaticField);
+console.log(SubClassHavingStaticField.anotherBaseStaticField)
+console.log(SubClassHavingStaticField.subStaticField)
+
+class Triple {
+    static customName = "Tripler"
+    static description = "I Triple Any Number You Provide"
+
+    static calculate(n = 1) {
+        return n*3;
+    }
+}
+
+class SquaredTriple extends Triple {
+    static longDescription
+    static description = "I Square The Triple Of Any Number You Provide";
+    static calculate(n) {
+        return super.calculate(n) * super.calculate(n);
+    }
+}
+
+console.log(Triple.description)
+console.log(Triple.calculate())
+console.log(Triple.calculate(5))
+
+
+const tp = new Triple;
+
+console.log(SquaredTriple.calculate(3)) // not affected by above instance creation
+console.log(SquaredTriple.description)
+console.log(SquaredTriple.longDescription)
+console.log(SquaredTriple.customName)
+
+// console.log(tp.calculate(4))   // because calculate is a static method
+
+
+class StaticMethodCall {
+    constructor() {
+      console.log(StaticMethodCall.staticProperty); // 'static property'
+      console.log(this.constructor.staticProperty); // 'static property'
+      console.log(StaticMethodCall.staticMethod()); // 'static method has been called.'
+      console.log(this.constructor.staticMethod()); // 'static method has been called.'
+    }
+    static staticProperty = "static property";
+    static staticMethod() {
+        return "static method has been called.";
+    }
+}
+
+new StaticMethodCall;
