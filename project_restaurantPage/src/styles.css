@@ -39,7 +39,7 @@ span {
 }
 
 .s1 {
-    transform: translate(-64px, 48px) rotate(-20deg);
+    transform: translate(-64px, 44px) rotate(-20deg);
 }
 .n1 {
     transform: translate(-89px, 25px) rotate(-19deg);
@@ -90,12 +90,124 @@ img {
 
 #content {
     margin: 20px;
-    width: 750px;
-    border-radius: 5px;
+    width: 900px;
+    border-radius: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #CEC2B8;
+}
+
+.outer-container {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color:#6096AA;
+    height: 100px;
+    width: 700px;
+    margin: 2rem;
+    clip-path: ellipse(50% 66% at 50% 51%);
+}
+
+.inner-container {
+    background-color:#6096AA;
+    padding:10px;
+    height: 200px;
+    width: 700px;
+    clip-path: ellipse(48% 110% at 50% 50%);
+    background-color:#F1E5D8;
+}
+
+.heading {
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    font-weight: 700;
+    font-size: 50px;
+    letter-spacing: 3px;
+    margin: 1.5rem;
+    height: 80px;
+    width: 700px;
+    background-color:#F1E5D8;
+    clip-path: ellipse(50% 66% at 50% 51%);
+}
+
+
+.review-outer {
+    height: 250px;
+    width: 500px;
+    clip-path: ellipse(48% 95% at 50% 50%);
+}
+
+.review-inner {
+    height: 200px;
+    width: 450px;
+    clip-path: ellipse(48% 95% at 50% 50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review {
+    margin: 2rem;
+    font-size: 20px;
+    font-weight: 530;
+}
+
+.timings-outer {
+    height: 300px;
+    width: 500px;
+    clip-path: ellipse(48% 95% at 50% 50%);
+}
+
+.timings-inner {
+    height: 250px;
+    width: 450px;
+    clip-path: ellipse(48% 95% at 50% 50%);
+    display: flex;
+    flex-direction: column;
+}
+
+
+.hours {
+    margin-left: 5rem;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.day {
+    text-align:center;
+    margin: 4px;
+}
+
+.location-outer {
+    height: 130px;
+    width: 500px;
+    clip-path: ellipse(48% 95% at 50% 50%);
+}
+
+.location-inner {
+    height: 80px;
+    width: 450px;
+    clip-path: ellipse(48% 95% at 50% 50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.location {
+    margin-left: 5rem;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 3px;
+    margin-top: 10px;
+}
+
+.address {
+    margin: 0px;
+    text-align:center;
+    font-size: 17px;
 }
 
 footer {
