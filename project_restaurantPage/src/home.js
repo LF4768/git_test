@@ -1,8 +1,8 @@
 const content = document.querySelector("#content");
 
 
-
 export function showHome() {
+
     const outerContainer = document.createElement("div");
     outerContainer.setAttribute("class", "outer-container");
     content.appendChild(outerContainer);

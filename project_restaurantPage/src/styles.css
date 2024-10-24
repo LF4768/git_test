@@ -61,11 +61,11 @@ span {
 }
 
 img {
-    height: 145px;
-    width: 200px;
+    height: 180px;
+    width: 250px;
     position: absolute;
-    left:280px;
-    top: -35px;
+    left:250px;
+    top: -30px;
 }
 
 .s2 {
