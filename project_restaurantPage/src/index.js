@@ -9,6 +9,8 @@ const homeButton = document.querySelector(".homeButton");
 const menuButton = document.querySelector(".menuButton");
 const aboutButton = document.querySelector(".aboutButton");
 
+showHome();
+
 
 homeButton.addEventListener("click", () => {
     render();

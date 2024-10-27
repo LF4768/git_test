@@ -4,7 +4,7 @@ const content = document.querySelector("#content");
 export function showHome() {
 
     const outerContainer = document.createElement("div");
-    outerContainer.setAttribute("class", "outer-container");
+    outerContainer.setAttribute("class", "outer-container title");
     content.appendChild(outerContainer);
 
 
