@@ -7,15 +7,26 @@ function projectTemplate() {
         console.log(projects);
     }
     const projectAdder = function() {
+        const name = prompt("Enter Name");
         projects.push({
-            name: "Project Name",
+            name: name,
             todos: [],
         });
     }
     const projectDeleter = function(index) {
         projects.splice(index,1)
     }   
-    return {projectArray, viewProjects, projectAdder, projectDeleter}
+    function indexFinder() {
+        let index = 0;
+        for(let i = 0; i < projectArray().length; i++) {
+            if(projectArray()[i].name == "asdf") {
+                index = i;
+                break;
+            } 
+        }
+        return index;
+    }
+    return {projectArray, viewProjects, projectAdder, projectDeleter, indexFinder}
 }
 
 
@@ -46,10 +57,12 @@ export function controller() {
     const viewProject = () => project.viewProjects();
 
     const addTodo = function() {
-        project.projectArray()[0].todos.push(todo.addTodo());
+        let index = project.indexFinder();
+        project.projectArray()[index].todos.push(todo.addTodo());
     }
     const statusChanger = function() {
-        project.projectArray()[0].todos[0].status = "Complete"
+        let index = project.indexFinder();
+        project.projectArray()[index].todos[0].status = "Complete"
 
     }
 
@@ -67,9 +80,10 @@ export function controller() {
 const start = controller();
 start.addProject();
 start.addProject();
+start.addProject();
+start.addTodo();
 start.addTodo();
 start.viewProject();
 start.statusChanger();
 start.viewTodo();
-start.deleteProject();
 start.viewProject();

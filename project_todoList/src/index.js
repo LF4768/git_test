@@ -2,11 +2,25 @@ import {projectTemplate} from './projects.js';
 
 import "./styles.css";
 
-// let object = [
-//     {
-//         name: "Do this",
-//         todos: [1, 2, 3, 4, 6, 7, 8, 9, 10]
-//     }
-// ]
+const body = document.querySelector("body");
 
-// console.log(object[0].todos[1]) 
+function test(event) {
+    console.log(event.target.className);
+    const element = event.target;
+    element.setAttribute("style", "background-color: red;");
+    body.removeChild(element);
+};
+
+
+for(let i = 0; i < 5; i++) {
+    const button = document.createElement("button")
+    button.classList.add("test")
+    button.classList.add(`${i}`)
+    
+    body.appendChild(button);
+}
+
+const button = document.querySelectorAll(".test");
+button.forEach((e) => {
+    e.addEventListener("click", test);
+})
