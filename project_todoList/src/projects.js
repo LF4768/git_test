@@ -6,8 +6,7 @@ function projectTemplate() {
     const viewProjects = function() {
         console.log(projects);
     }
-    const projectAdder = function() {
-        const name = prompt("Enter Name");
+    const projectAdder = function(name) {
         projects.push({
             name: name,
             todos: [],
@@ -32,58 +31,59 @@ function projectTemplate() {
 
 
 function todos() {
-    let todo = {};
-    const addTodo = function() {
-        todo = {
-            name: "Todo Name",
-            description: "Todo Description",
-            dueDate: "Due Date",
-            priority: "Priority",
-            notes: "Notes",
-            status: "Incomplete"
-        }
-        return todo;
+ 
+    function todoDetails(name, desc, dueDate, priority, notes, status) {
+        this.name = name;
+        this.desc = desc;
+        this.dueDate = dueDate;
+        this.priority = priority;
+        this.notes = notes;
+        this.status = status;
+    }
+
+    const addTodo = function(name, desc, dueDate, priority, notes, status) {
+        return new todoDetails(name, desc, dueDate, priority, notes, status)
     }
 
     return{addTodo};
 }
 
-export function controller() {
+function controller() {
     const project = projectTemplate();
     const todo = todos();
 
-    const addProject = () => project.projectAdder();
+    const addProject = (name) => project.projectAdder(name);
 
     const viewProject = () => project.viewProjects();
 
-    const addTodo = function() {
+    const addTodo = function(name, desc, dueDate, priority, notes, status) {
         let index = project.indexFinder();
-        project.projectArray()[index].todos.push(todo.addTodo());
+        project.projectArray()[index].todos.push(todo.addTodo(name, desc, dueDate, priority, notes, status));
     }
-    const statusChanger = function() {
-        let index = project.indexFinder();
-        project.projectArray()[index].todos[0].status = "Complete"
+    const statusChanger = function(todoIndex) {
+        let projectIndex = project.indexFinder();
+        project.projectArray()[projectIndex].todos[todoIndex].status = "Complete"
 
     }
 
-    const viewTodo = function()  {
-        console.log(project.projectArray()[0].todos[0])
+    const viewTodo = function(index1, index2)  {
+        console.log(project.projectArray()[index1].todos[index2])
     }
 
-    const deleteProject = function() {
-        project.projectDeleter(0)
+    const deleteProject = function(index) {
+        project.projectDeleter(index)
     }
 
     return {viewProject, addTodo, statusChanger, addProject, deleteProject, viewTodo};
 }
 
-const start = controller();
+export const start = controller();
+start.addProject("hello");
+start.addProject("asdf");
 start.addProject();
-start.addProject();
-start.addProject();
-start.addTodo();
-start.addTodo();
+start.addTodo('x', "1", "3", "1", "hello", "incomplete");
+start.addTodo('y', "5", "26", "000", "bye", "complete");
 start.viewProject();
-start.statusChanger();
-start.viewTodo();
-start.viewProject();
+start.statusChanger(1);
+start.viewTodo(1,0);
+start.deleteProject(2);

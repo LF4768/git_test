@@ -1,6 +1,8 @@
-import {projectTemplate} from './projects.js';
+import {start} from './projects.js';
+
 
 import "./styles.css";
+
 
 const body = document.querySelector("body");
 
