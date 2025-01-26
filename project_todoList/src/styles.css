@@ -1,3 +1,45 @@
 body {
     background-color: lightgray;
+    display:grid;
+    grid-template-columns: 2fr 4fr;
+    height: 100vh;
+    width: 100vh;
+}
+
+.sidebar {
+    border: 2px red solid;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.profile {
+    height: 8%;
+}
+
+.projects-pane {
+    height: 92%;
+    border: 2px yellow solid;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.add-project {
+    height: 7%;
+}
+
+.projects {
+    height: 85%;
+    border: 2px green solid;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.project-button {
+    margin-top : 2rem;
+    border: 2px black solid;
 }

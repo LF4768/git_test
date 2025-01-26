@@ -4,7 +4,7 @@ function projectTemplate() {
     const projects = [];
     const projectArray = () => projects;
     const viewProjects = function() {
-        console.log(projects);
+        return projects;
     }
     const projectAdder = function(name) {
         projects.push({
@@ -80,10 +80,9 @@ function controller() {
 export const start = controller();
 start.addProject("hello");
 start.addProject("asdf");
-start.addProject();
+start.addProject("gfddfgh");
 start.addTodo('x', "1", "3", "1", "hello", "incomplete");
 start.addTodo('y', "5", "26", "000", "bye", "complete");
-start.viewProject();
+console.log(start.viewProject())
 start.statusChanger(1);
 start.viewTodo(1,0);
-start.deleteProject(2);
