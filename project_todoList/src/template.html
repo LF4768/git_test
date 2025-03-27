@@ -17,10 +17,43 @@
         <div class="projects-pane">
             <div class="add-project-button-holder">
                 <button class="add-project-button">Add Project </button>
+                <dialog style="z-index: 1000;" class="add-project-dialog">
+                    <form method="dialog" >
+                        <fieldset class="add-project-form-title">Add Project</fieldset>
+                        <label for="project-name">Name: </label>
+                        <input id="project-name" type="text">
+                        <div class="submit-button-holder">
+                            <button class="submit-project-button">Submit</button>
+                        </div>
+                    </form>
+                </dialog>    
             </div>
             <div class="projects"></div>
         </div>
     </div>
-    <div class="main"></div>
+    <div class="main">
+        <div class="tasks-pane">
+            
+        </div>
+            <button class="add-task-button">Add Task</button>
+            <dialog style="z-index: 1000;" class="add-task-dialog">
+                <form method="dialog" >
+                    <fieldset class="add-task-form-title">Add Task</fieldset>
+                    <label for="task-name">Name: </label>
+                    <input id="task-name" type="text">
+                    <label for="task-desc">Description: </label>
+                    <input id="task-desc" type="text">
+                    <label for="task-due-date">Due Date: </label>
+                    <input id="task-due-date" type="date">
+                    <label for="task-priority">Priority: </label>
+                    <input id="task-priority" type="number">
+                    <label for="task-notes">Notes: </label>
+                    <input id="task-notes" type="text">
+                    <div class="submit-button-holder">
+                        <button class="submit-task-button">Submit</button>
+                    </div>
+                </form>
+            </dialog>
+    </div>
 </body>
 </html>
