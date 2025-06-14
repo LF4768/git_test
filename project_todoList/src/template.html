@@ -32,25 +32,42 @@
         </div>
     </div>
     <div class="main">
-        <div class="tasks-pane">
-            
+        <div class="todos-pane">
+            <div class="project-title">
+                Template Project
+            </div>
+            <div class="todo-heading">
+                To-Do's
+            </div>
+            <div class="todo-list">
+                <div class="todo">
+                    <input  class="todo-checkbox" type="checkbox">
+                        <div class="todo-name-info">Read a book</div>
+                        <div class="todo-due-date-info">2025-12-03</div>
+                </div>
+                <div class="todo">
+                    <input class="todo-checkbox" type="checkbox">
+                        <div class="todo-name-info">Read a book</div>
+                        <div class="todo-due-date-info">2025-12-03</div>
+                </div>
+            </div>
         </div>
-            <button class="add-task-button">Add Task</button>
-            <dialog style="z-index: 1000;" class="add-task-dialog">
+            <button class="add-todo-button">Add Task</button>
+            <dialog style="z-index: 1000;" class="add-todo-dialog">
                 <form method="dialog" >
-                    <fieldset class="add-task-form-title">Add Task</fieldset>
-                    <label for="task-name">Name: </label>
-                    <input id="task-name" type="text">
-                    <label for="task-desc">Description: </label>
-                    <input id="task-desc" type="text">
-                    <label for="task-due-date">Due Date: </label>
-                    <input id="task-due-date" type="date">
-                    <label for="task-priority">Priority: </label>
-                    <input id="task-priority" type="number">
-                    <label for="task-notes">Notes: </label>
-                    <input id="task-notes" type="text">
+                    <fieldset class="add-todo-form-title">Add Task</fieldset>
+                    <label for="todo-name">Name: </label>
+                    <input  id="todo-name" type="text" required />
+                    <label for="todo-desc">Description: </label>
+                    <input id="todo-desc" type="text">
+                    <label for="todo-due-date">Due Date: </label>
+                    <input id="todo-due-date" type="date">
+                    <label for="todo-priority">Priority: </label>
+                    <input id="todo-priority" type="number">
+                    <label for="todo-notes">Notes: </label>
+                    <input id="todo-notes" type="text">
                     <div class="submit-button-holder">
-                        <button class="submit-task-button">Submit</button>
+                        <button type="submit" class="submit-todo-button">Submit</button>
                     </div>
                 </form>
             </dialog>
