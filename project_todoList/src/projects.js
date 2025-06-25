@@ -1,5 +1,4 @@
 
-
 function projectTemplate() {
     const projects = [];
     const projectArray = () => projects;
