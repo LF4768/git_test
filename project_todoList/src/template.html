@@ -9,7 +9,7 @@
     <div class="sidebar">
         <div class="profile">
             <div class="img">
-                <img src=>
+                <img class="profile-picture" src="./../images/download.jpg" alt="image of user">
             </div>
             <div class="info">
                 <div class="name">LF_47</div>
@@ -35,26 +35,19 @@
     </div>
     <div class="main">
         <div class="todos-pane">
-            <div class="project-title">
-                Template Project
-            </div>
+            <div class="project-title">Template Project</div>
             <div class="todo-heading">
                 To-Do's
             </div>
             <div class="todo-list">
                 <div class="todo">
-                    <input  class="todo-checkbox" type="checkbox">
-                        <div class="todo-name-info">Read a book</div>
-                        <div class="todo-due-date-info">2025-12-03</div>
-                </div>
-                <div class="todo">
-                    <input class="todo-checkbox" type="checkbox">
+                    <input name="status"  class="todo-checkbox" type="checkbox">
                         <div class="todo-name-info">Read a book</div>
                         <div class="todo-due-date-info">2025-12-03</div>
                 </div>
             </div>
         </div>
-            <button class="add-todo-button">Add Task</button>
+            <button class="add-todo-button" hidden>Add Task</button>
             <dialog style="z-index: 1000;" class="add-todo-dialog">
                 <form method="dialog" >
                     <fieldset class="add-todo-form-title">Add Task</fieldset>

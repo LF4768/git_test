@@ -10,10 +10,9 @@ let index;
 
 import "./styles.css";
 
-
-
 function render() {
     const renderProjects = function() {
+        let todoButton = document.querySelector(".add-todo-button")
         projects.innerHTML = '';
         for(let i = 0; i < start.viewProject().length; i++) {
             let projectHolder = document.createElement("button");
@@ -21,27 +20,32 @@ function render() {
             projectHolder.classList.add("project-button")
             projectHolder.addEventListener("click", () => {
                 projectTitle.textContent = `${start.viewProject()[i].name}`
+                if(start.viewProject().length > 0) {
+                    todoButton.hidden = false;
+                }
+                localStorage.setItem("projects", JSON.stringify(start.viewProject()));
+                deleteItems().removeProject();
                 index = i;
-                start.viewTodo(i,0)
-                renderProjects();
+                renderProjects();           
                 render().renderTodos();
             });
             projects.appendChild(projectHolder)
         }
         projectButtons = document.querySelectorAll(".project-button");
     }
+
     
     const renderTodos = function() {
         todos.innerHTML = '';
-        let todoHolder = document.createElement("div");
-        todoHolder.classList.add("todo");
-
         if(start.viewTodo(index,0) === undefined) {
         } else{
-                for(let i = 0; i < start.viewProject()[index].todos.length; i++){
+            for(let i = 0; i < start.viewProject()[index].todos.length; i++){
                 let inputCheckbox = document.createElement("input");
+                let todoHolder = document.createElement("div");
+                todoHolder.classList.add("todo");
                 inputCheckbox.classList.add("todo-checkbox");   
-                inputCheckbox.setAttribute("type","checkbox")
+                inputCheckbox.setAttribute("type","checkbox");
+                inputCheckbox.setAttribute("name", "status");
                 todoHolder.appendChild(inputCheckbox);
 
                 let nameInfo = document.createElement("div");
@@ -53,20 +57,47 @@ function render() {
                 dueDateInfo.classList.add("todo-due-date-info");
                 dueDateInfo.textContent = `${start.viewTodo(index,i).dueDate}`;
                 todoHolder.appendChild(dueDateInfo);
+                
+                let deleteTodoButton = document.createElement("button");
+                deleteTodoButton.classList.add("delete-todo-button");
+                deleteTodoButton.textContent = "Delete Todo"
+                deleteTodoButton.hidden = true;
+                todoHolder.appendChild(deleteTodoButton);
+                
                 todos.appendChild(todoHolder);
             }
+            todoStatus().statusChange();
         }
         
     }
 
+    const template = function() {
+        projectTitle.textContent = "Template Project";
+        let inputCheckbox = document.createElement("input");
+        let todoHolder = document.createElement("div");
+        todoHolder.classList.add("todo");
+        inputCheckbox.classList.add("todo-checkbox");   
+        inputCheckbox.setAttribute("type","checkbox");
+        inputCheckbox.setAttribute("name", "status");
+        todoHolder.appendChild(inputCheckbox);
 
-    return {renderProjects, renderTodos}
+        let nameInfo = document.createElement("div");
+        nameInfo.classList.add("todo-name-info");
+        nameInfo.textContent = "Read a book";
+        todoHolder.appendChild(nameInfo);
+
+        let dueDateInfo = document.createElement("div");
+        dueDateInfo.classList.add("todo-due-date-info");
+        dueDateInfo.textContent = "2025-12-03";
+        todoHolder.appendChild(dueDateInfo);
+
+        todos.appendChild(todoHolder);
+        
+        
+    }
+
+    return {renderProjects, renderTodos, template}
 }
-
-render().renderProjects();
-
-
-
 
 function dialogBoxes() {
 
@@ -75,12 +106,12 @@ function dialogBoxes() {
         const projectDialogBox = document.querySelector(".add-project-dialog");
         const submitProjectButton = document.querySelector(".submit-project-button");
         const projectName = document.querySelector("#project-name");
-
-
+        
+        
         addProjectButton.addEventListener("click", () => {
             projectDialogBox.showModal();
         })
-
+        
         projectDialogBox.addEventListener("close", () => {
             if(projectName.value === "") {
                 window.alert("No Value Given!")
@@ -110,8 +141,7 @@ function dialogBoxes() {
         addTodoButton.addEventListener("click", () => {
             todoDialogBox.showModal();
         })
-
-
+        
         todoDialogBox.addEventListener("close", () => {
             let currentTime = new Date();
             let day = currentTime.getDate();
@@ -125,6 +155,7 @@ function dialogBoxes() {
                 window.alert("No Value Given!")
             } else {
                 start.addTodo(index, todoName.value,todoDesc.value,todoDueDate.value,todoPriority.value,todoNotes.value, "incomplete");
+                start.arrangePriority(index);
                 render().renderTodos();
             }
             console.log(start.viewProject());
@@ -139,75 +170,69 @@ function dialogBoxes() {
     return{newProject, newTodo};
 }
 
+
+
+function deleteItems() {
+    const removeProject = function() {
+        let todoButton = document.querySelector(".add-todo-button")
+        let deleteProjectButton = document.createElement("button");
+        deleteProjectButton.classList.add("delete-project");
+        deleteProjectButton.textContent = "Delete Project";
+        projectTitle.appendChild(deleteProjectButton);
+        deleteProjectButton.addEventListener("click", () => {
+            start.deleteProject(index);
+            if(start.viewProject().length == 0) {
+                todoButton.hidden = true;
+            }
+            render().renderProjects();
+            render().template();
+        })
+    }    
+    
+    const removeTodo = function(projectIndex, todoIndex, event) {
+        let deleteTodoButtons = document.querySelectorAll(".delete-todo-button");
+        if(event == true) {
+            deleteTodoButtons[todoIndex].hidden = false;
+            deleteTodoButtons[todoIndex].addEventListener("click", () => {
+                start.deleteTodo(projectIndex, todoIndex);
+                render().renderTodos();
+            })
+        } else {
+            deleteTodoButtons[todoIndex].hidden = true;
+            deleteTodoButtons[todoIndex].removeEventListener("click", () => {
+                start.deleteTodo(projectIndex, todoIndex);
+                render().renderTodos();
+            })
+        }
+    }
+    return {removeProject, removeTodo};
+}    
+
+
+dialogBoxes().newProject();
 dialogBoxes().newTodo();
 
-    
 
+function todoStatus() {
+    const statusChange = function() {
+        let todoStatus = document.querySelectorAll("input[type=checkbox][name=status]");
+        
+        for(let i = 0; i < todoStatus.length; i++) {
+            todoStatus[i].addEventListener("change", () => {
+                start.statusChanger(index,i);
+                if(start.viewTodo(index,i).status === "complete") {
+                    (todoStatus[i].parentNode).classList.add("complete")
+                    deleteItems().removeTodo(index, i, true);
+                } else if (start.viewTodo(index,i).status === "incomplete") {
+                    (todoStatus[i].parentNode).classList.remove("complete");
+                    deleteItems().removeTodo(index, i, false);
+                }
+            })
+        }
+    }
+    return {statusChange}
+}
 
+start.storageGetter();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function test(event) {
-//     console.log(event.target.className);
-//     const element = event.target;
-//     element.setAttribute("style", "background-color: red;");
-//     body.removeChild(element);
-// };
-
-
-// for(let i = 0; i < 5; i++) {
-//     const button = document.createElement("button")
-//     button.classList.add("test")
-//     button.classList.add(`${i}`)
-    
-//     body.appendChild(button);
-// }
-
-// const button = document.querySelectorAll(".test");
-// button.forEach((e) => {
-//     e.addEventListener("click", test);
-// })
+render().renderProjects();

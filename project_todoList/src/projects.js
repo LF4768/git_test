@@ -1,10 +1,7 @@
 
 function projectTemplate() {
-    const projects = [];
+    let projects = [];
     const projectArray = () => projects;
-    const viewProjects = function() {
-        return projects;
-    }
     const projectAdder = function(name) {
         projects.push({
             name: name,
@@ -14,23 +11,18 @@ function projectTemplate() {
     const projectDeleter = function(index) {
         projects.splice(index,1)
     }   
-    function indexFinder(name) {
-        let index = 0;
-        for(let i = 0; i < projectArray().length; i++) {
-            if(projectArray()[i].name == name) {
-                index = i;
-                break;
-            } 
-        }
-        return index;
+
+    const storageGet = function() {
+        projects = JSON.parse(localStorage.getItem("projects"))
     }
-    return {projectArray, viewProjects, projectAdder, projectDeleter, indexFinder}
+
+    return {projectArray, projectAdder, projectDeleter, storageGet}
 }
 
 
 
 function todos() {
- 
+
     function todoDetails(name, desc, dueDate, priority, notes, status) {
         this.name = name;
         this.desc = desc;
@@ -51,7 +43,30 @@ function todos() {
         return new todoDetails(name, desc, dueDate, priority, notes, status)
     }
 
-    return{addTodo};
+    const todoDeleter = function(project,projectIndex, todoIndex) {
+        project.projectArray()[projectIndex].todos.splice(todoIndex,1)
+    }
+
+    const priorityOrder = function(project, projectIndex) {
+        let temp = project.projectArray()[projectIndex].todos;
+        let ascArray = [];
+        while (temp.length != 0) {
+            let index = 0
+            let mini = temp[0].priority;
+            for(let i = 0; i < temp.length; i++) {
+                if (Number(temp[i].priority) < mini) {
+                    console.log("works")
+                    mini = temp[i].priority;
+                    index = i;
+                }
+            }
+            ascArray.push(temp[index]); 
+            temp.splice(index, 1)
+        }
+        project.projectArray()[projectIndex].todos = ascArray; 
+    }
+
+    return{addTodo, todoDeleter, priorityOrder};
 }
 
 function controller() {
@@ -60,36 +75,37 @@ function controller() {
 
     const addProject = (name) => project.projectAdder(name);
 
-    const viewProject = () => project.viewProjects();
+    const viewProject = () => project.projectArray();
 
     const addTodo = function(index, name, desc, dueDate, priority, notes, status) {
         project.projectArray()[index].todos.push(todo.addTodo(name, desc, dueDate, priority, notes, status)); 
     }
-    const statusChanger = function(todoIndex) {
-        let projectIndex = project.indexFinder();
+    const statusChanger = function(projectIndex, todoIndex) {
         project.projectArray()[projectIndex].todos[todoIndex].toggleStatus();
-
     }
 
     const viewTodo = function(index1, index2)  {
         return project.projectArray()[index1].todos[index2]
     }
+    
+    const arrangePriority = function(index) {
+        todo.priorityOrder(project, index)
+    }
 
     const deleteProject = function(index) {
         project.projectDeleter(index)
-        console.log(start.viewProject())
     }
 
-    return {viewProject, addTodo, statusChanger, addProject, deleteProject, viewTodo};
+    const deleteTodo = function(projectIndex, todoIndex) {
+        todo.todoDeleter(project, projectIndex, todoIndex);
+    }
+
+    const storageGetter = function() {
+        project.storageGet();
+    }
+
+
+    return {viewProject, addTodo, statusChanger, addProject, deleteProject, viewTodo, deleteTodo, arrangePriority, storageGetter};
 }
 
 export const start = controller();
-start.addProject("hello");
-start.addProject("asdf");
-start.addProject("gfddfgh");
-start.addTodo(0, 'x', "1", "3", "1", "hello", "incomplete");
-start.addTodo(1, 'y', "5", "26", "000", "bye", "incomplete");
-start.addTodo(1, 'y', "5", "26", "000", "bye", "incomplete");
-console.log(start.viewProject())
-start.statusChanger(0);
-start.viewTodo(1,0);
