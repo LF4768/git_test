@@ -13,7 +13,10 @@ function projectTemplate() {
     }   
 
     const storageGet = function() {
-        projects = JSON.parse(localStorage.getItem("projects"))
+        if(JSON.parse(localStorage.getItem("projects")) != null){
+            projects = JSON.parse(localStorage.getItem("projects"))
+        }
+
     }
 
     return {projectArray, projectAdder, projectDeleter, storageGet}
@@ -31,11 +34,11 @@ function todos() {
         this.notes = notes;
         this.status = status;
     }
-    todoDetails.prototype.toggleStatus = function() {
-        if(this.status == "incomplete") {
-            this.status = "complete";
+    const toggleStatus = function(project, projectIndex, todoIndex) {
+        if(project.projectArray()[projectIndex].todos[todoIndex].status == "incomplete") {
+            project.projectArray()[projectIndex].todos[todoIndex].status = "complete";
         } else {
-            this.status = "incomplete";
+            project.projectArray()[projectIndex].todos[todoIndex].status = "incomplete";
         }
     }
 
@@ -66,8 +69,11 @@ function todos() {
         project.projectArray()[projectIndex].todos = ascArray; 
     }
 
-    return{addTodo, todoDeleter, priorityOrder};
+    return{addTodo, todoDeleter, priorityOrder, toggleStatus};
 }
+
+
+
 
 function controller() {
     const project = projectTemplate();
@@ -81,7 +87,7 @@ function controller() {
         project.projectArray()[index].todos.push(todo.addTodo(name, desc, dueDate, priority, notes, status)); 
     }
     const statusChanger = function(projectIndex, todoIndex) {
-        project.projectArray()[projectIndex].todos[todoIndex].toggleStatus();
+        todo.toggleStatus(project,projectIndex,todoIndex)
     }
 
     const viewTodo = function(index1, index2)  {
@@ -103,9 +109,22 @@ function controller() {
     const storageGetter = function() {
         project.storageGet();
     }
+    
+    const methods = function(){
+        let controller = localStorage.getItem('controller')
+        let func = eval('(' + controller + ')')
+        func(); 
 
+    }
 
-    return {viewProject, addTodo, statusChanger, addProject, deleteProject, viewTodo, deleteTodo, arrangePriority, storageGetter};
+    return {viewProject, addTodo, statusChanger, addProject, deleteProject, viewTodo, deleteTodo, arrangePriority, storageGetter, methods};
 }
 
 export const start = controller();
+
+
+
+localStorage.setItem('controller', controller.toString()) 
+
+
+

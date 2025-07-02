@@ -1,5 +1,7 @@
 import {start} from './projects.js';
 
+
+
 const projects = document.querySelector(".projects");
 const projectTitle = document.querySelector(".project-title")
 const todos = document.querySelector(".todo-list");
@@ -8,11 +10,20 @@ const todos = document.querySelector(".todo-list");
 let projectButtons;
 let index;
 
+
+
+
+
+
+
 import "./styles.css";
+
+
 
 function render() {
     const renderProjects = function() {
         let todoButton = document.querySelector(".add-todo-button")
+        localStorage.setItem("projects", JSON.stringify(start.viewProject()));
         projects.innerHTML = '';
         for(let i = 0; i < start.viewProject().length; i++) {
             let projectHolder = document.createElement("button");
@@ -23,7 +34,6 @@ function render() {
                 if(start.viewProject().length > 0) {
                     todoButton.hidden = false;
                 }
-                localStorage.setItem("projects", JSON.stringify(start.viewProject()));
                 deleteItems().removeProject();
                 index = i;
                 renderProjects();           
@@ -37,6 +47,7 @@ function render() {
     
     const renderTodos = function() {
         todos.innerHTML = '';
+        localStorage.setItem("projects", JSON.stringify(start.viewProject()));
         if(start.viewTodo(index,0) === undefined) {
         } else{
             for(let i = 0; i < start.viewProject()[index].todos.length; i++){
@@ -194,6 +205,7 @@ function deleteItems() {
         if(event == true) {
             deleteTodoButtons[todoIndex].hidden = false;
             deleteTodoButtons[todoIndex].addEventListener("click", () => {
+                start.methods()
                 start.deleteTodo(projectIndex, todoIndex);
                 render().renderTodos();
             })
@@ -235,4 +247,8 @@ function todoStatus() {
 
 start.storageGetter();
 
+
 render().renderProjects();
+
+
+
