@@ -1,7 +1,8 @@
 body {
-    background-color: rgb(97, 97, 97);
+    background-color: black;
+    color: white;
     display:grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 300px 1fr;
     height: 100vh;
     width: 100%;
     margin: 0px;
@@ -10,7 +11,9 @@ body {
 .sidebar {
     display: flex;
     flex-direction: column;
+    box-shadow: 5px 5px 30px 0px rgb(117, 128, 4);
     height: 100%;
+    background-color: rgb(42, 42, 42);
 }
 
 .profile {
@@ -28,7 +31,6 @@ body {
     height: 4rem;
     width: 4.5rem;
     border-radius: 35%;
-    margin: 10px;
     padding: 10px;
 }
 
@@ -37,8 +39,11 @@ body {
 .info {
     height: 100%;
     width:65%;
+    font-size: 18px;
+    font-weight: bold;
     display: flex;
     flex-direction: column; 
+    color: rgba(252, 252, 0, 0.892)
 }
 
 .name {
@@ -47,15 +52,15 @@ body {
     height: 60%;
     width: 100%;
     padding-bottom: 5px;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 650;
 }
 
 .handle {
     height: 40%;
     width: 100%;
-    font-size: 15px;
-    padding-left: 4px;
+    font-size: 16px;
+    padding-left: 8px;
     color: lightgray;
 }
 
@@ -63,7 +68,6 @@ body {
 
 .projects-pane {
     height: 92%;
-    border: 2px yellow solid;
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
@@ -73,16 +77,22 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding:20px;
     height: 7%;
 }
 
 .add-project-button {
     margin-top: 1rem;
-    height: 3rem;
-    width: 15rem;
+    height: 2.7rem;
+    width: 14rem;
     border-radius: 60px;
     font-size: 1rem;
+    letter-spacing: 0.6px;
     font-weight: bold;
+    background-color: rgba(252, 252, 0, 0.874);
+    border: 2px rgb(0, 0, 0) solid;
+    box-shadow: 3px 3px 10px 2px rgb(0, 0, 0);
+    color: black;
 }
 
 
@@ -97,7 +107,7 @@ body {
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid white;
     margin-bottom: 1rem;
 }
 
@@ -109,7 +119,6 @@ input {
 
 .projects {
     height: 85%;
-    border: 2px green solid;
     display: flex;
     flex-direction: column;
     padding: 1rem;
@@ -118,9 +127,23 @@ input {
 }
 
 .project-button {
-    margin-top : 2rem;
-    width: 100%;
-    border: 2px black solid;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin : 2rem 0 0 0;
+    word-break: break-all;
+    padding: 10px;
+    width: 90%;
+    height: 2rem;
+    color: black;
+    border-radius: 8px;     
+    font-size: 20px;
+    text-wrap: wrap;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    background-color: rgba(252, 252, 0, 0.874);
+    border: 2px rgb(0, 0, 0) solid; 
 }
 .main {
     display: flex;
@@ -137,20 +160,32 @@ input {
 }
 
 .project-title {
-    width: 95%;
-    font-size: 2.5rem;
+    width: 1220px;
+    word-break: break-all;
+    text-wrap: wrap;
+    font-size: 3rem;
     font-weight: bold;
     margin-top: 3rem;
     display: flex;
     justify-content: space-between;
+    color: rgb(254, 254, 1)
 
 }
 
 .delete-project {
-    border-radius: 15%;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    border: 3.4px rgba(252, 252, 0, 0.874) solid;
+    box-shadow: 2px 3px 10px 2px rgba(203, 203, 7, 0.595);
     font-size: 18px;
     font-weight: 700;
     padding: 15px;
+    letter-spacing: 0.8px;
+}
+
+.delete-project:hover {
+    background-color: rgba(153, 153, 17, 0.817);
 }
 
 .todo-heading {
@@ -159,7 +194,8 @@ input {
     width: 90%;
     margin-top: 5rem;
     margin-left: 0.2rem;
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid rgba(252, 252, 0, 0.874);
+    padding: 0px 0px 6px 0px;
 }
 
 .todo-list {
@@ -171,7 +207,8 @@ input {
 .todo { 
     display: grid;
     grid-template-columns: 20px  1fr 150px;
-    grid-template-rows: 40px 30px;
+    grid-template-rows: 25px 30px;
+    padding: 20px;
     align-items: center;
 }
 
@@ -179,22 +216,45 @@ input {
 .todo-name-info {
     margin-bottom: 3px;
     margin-top : 2px;
+    padding-left: 5px;
+    font-size: 20px;
+    color: white
 }
 
 .todo-due-date-info {
-    padding-left:20px;
-    font-size: 14px;
+    padding-left:24px;
+    margin-top: 0px;
+    font-size: 16px;
     grid-column-end: -2;
     margin-bottom: 1rem;
+    color: rgb(254, 254, 1)
 }
 
+.delete-todo-button:hover {
+    background-color: rgba(153, 153, 17, 0.817);
+}
 .delete-todo-button {
-    height: 70%;
+    height: 80%;
     width: 90%;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.8px;
     grid-row-start: 1;
+    grid-row-end: 3;
     grid-column-start: 3;
     justify-self: end;
-    border-radius: 10%;
+    align-self: flex-start;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    border: 3.4px rgba(252, 252, 0, 0.874) solid;
+    box-shadow: 2px 3px 10px 2px rgba(203, 203, 7, 0.595);
+    text-decoration: none;
+}
+
+
+.complete {
+    text-decoration: 5px line-through yellow;
 }
 
 .add-todo-button {
@@ -202,8 +262,20 @@ input {
     width: 10rem;
     position: absolute;
     bottom: 2rem;
-    right: 7rem;
+    right: 9rem;
     border-radius: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background-color: rgba(252, 252, 0, 0.874);
+    border: 3px rgb(42, 42, 42) solid;    
+    box-shadow: 2px 1px 11px 2px rgb(71, 71, 71);     
+}
+
+
+.add-todo-button:active {
+    background-color: rgba(122, 122, 1, 0.594);
+    color: white
 }
 
 

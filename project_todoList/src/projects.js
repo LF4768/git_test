@@ -26,12 +26,10 @@ function projectTemplate() {
 
 function todos() {
 
-    function todoDetails(name, desc, dueDate, priority, notes, status) {
+    function todoDetails(name, dueDate, priority, status) {
         this.name = name;
-        this.desc = desc;
         this.dueDate = dueDate;
         this.priority = priority;
-        this.notes = notes;
         this.status = status;
     }
     const toggleStatus = function(project, projectIndex, todoIndex) {
@@ -42,8 +40,8 @@ function todos() {
         }
     }
 
-    const addTodo = function(name, desc, dueDate, priority, notes, status) {
-        return new todoDetails(name, desc, dueDate, priority, notes, status)
+    const addTodo = function(name,dueDate, priority, status) {
+        return new todoDetails(name,dueDate, priority, status)
     }
 
     const todoDeleter = function(project,projectIndex, todoIndex) {

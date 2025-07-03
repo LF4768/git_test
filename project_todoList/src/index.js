@@ -26,13 +26,18 @@ function render() {
         localStorage.setItem("projects", JSON.stringify(start.viewProject()));
         projects.innerHTML = '';
         for(let i = 0; i < start.viewProject().length; i++) {
-            let projectHolder = document.createElement("button");
+            let projectHolder = document.createElement("p");
             projectHolder.textContent += `${start.viewProject()[i].name}`
             projectHolder.classList.add("project-button")
             projectHolder.addEventListener("click", () => {
                 projectTitle.textContent = `${start.viewProject()[i].name}`
                 if(start.viewProject().length > 0) {
                     todoButton.hidden = false;
+                }
+                if(start.viewProject()[i].todos.length > 0) {
+                    for(let j = 0; j < start.viewProject()[i].todos.length; j++) {
+                        start.viewTodo(i,j).status = "incomplete";
+                    }
                 }
                 deleteItems().removeProject();
                 index = i;
@@ -86,6 +91,7 @@ function render() {
         projectTitle.textContent = "Template Project";
         let inputCheckbox = document.createElement("input");
         let todoHolder = document.createElement("div");
+        todos.textContent = "";
         todoHolder.classList.add("todo");
         inputCheckbox.classList.add("todo-checkbox");   
         inputCheckbox.setAttribute("type","checkbox");
@@ -144,10 +150,8 @@ function dialogBoxes() {
         const todoDialogBox = document.querySelector(".add-todo-dialog");
         const submitTodoButton = document.querySelector(".submit-todo-button")
         const todoName = document.querySelector("#todo-name");
-        const todoDesc = document.querySelector("#todo-desc");
         const todoDueDate = document.querySelector("#todo-due-date");
-        const todoPriority = document.querySelector("#todo-priority");
-        const todoNotes = document.querySelector("#todo-notes");    
+        const todoPriority = document.querySelector("#todo-priority");   
 
         addTodoButton.addEventListener("click", () => {
             todoDialogBox.showModal();
@@ -162,14 +166,13 @@ function dialogBoxes() {
             
             if(todoDueDate.value < date) {
                 window.alert("Due Date cannot be less than current date!")
-            } else if(todoName.value === "" || todoDesc.value === "" || todoPriority.value === "" || todoNotes.value === "" ) {
+            } else if(todoName.value === ""  || todoPriority.value === "") {
                 window.alert("No Value Given!")
             } else {
-                start.addTodo(index, todoName.value,todoDesc.value,todoDueDate.value,todoPriority.value,todoNotes.value, "incomplete");
+                start.addTodo(index, todoName.value,todoDueDate.value,todoPriority.value, "incomplete");
                 start.arrangePriority(index);
                 render().renderTodos();
             }
-            console.log(start.viewProject());
         })
 
         submitTodoButton.addEventListener("click", (e) => {
@@ -180,8 +183,6 @@ function dialogBoxes() {
 
     return{newProject, newTodo};
 }
-
-
 
 function deleteItems() {
     const removeProject = function() {
@@ -233,10 +234,10 @@ function todoStatus() {
             todoStatus[i].addEventListener("change", () => {
                 start.statusChanger(index,i);
                 if(start.viewTodo(index,i).status === "complete") {
-                    (todoStatus[i].parentNode).classList.add("complete")
+                    (todoStatus[i].nextSibling).classList.add("complete")
                     deleteItems().removeTodo(index, i, true);
                 } else if (start.viewTodo(index,i).status === "incomplete") {
-                    (todoStatus[i].parentNode).classList.remove("complete");
+                    (todoStatus[i].nextSibling).classList.remove("complete");
                     deleteItems().removeTodo(index, i, false);
                 }
             })
