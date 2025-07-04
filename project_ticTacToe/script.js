@@ -256,7 +256,7 @@ function gameController(
   return {playRound, getActivePlayer, restartGame};
 }
 
-const game = gameController()
+const game = gameController();
 
 restart.addEventListener("click" , () => {
   game.restartGame();
