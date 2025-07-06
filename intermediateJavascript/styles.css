@@ -1,0 +1,83 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-holder {
+  background-color: rgb(168, 166, 166);
+  width: 18rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  font-size: 30px;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+}
+
+.menu-holder::after {
+  content: "↓";
+}
+
+.items {
+  overflow: hidden;
+  max-height: 0;
+}
+
+.items > div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.items.visible {
+  display: block;
+  background-color: rgb(168, 166, 166);
+  width: 18rem;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-size: 30px;
+  justify-content: space-between;
+  max-height: 300px;
+  transition: max-height 0.3s ease-in;
+}
+
+.items > div:hover {
+  background-color: rgb(212, 212, 212);
+}
+
+/* .menu-holder {
+  background: #e0e0e0;
+  padding: 10px;
+  margin: 5px 0px 0px 0px;
+}
+
+.menu-holder:hover {
+  background: #000;
+  color: #fff;
+}
+
+.items {
+  overflow: hidden;
+  max-height: 0;
+}
+
+.items.visible {
+  max-height: 300px;
+  transition: max-height 0.3s ease-in;
+}
+
+.items > div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  padding: 10px 0px 0px 0px;
+} */
