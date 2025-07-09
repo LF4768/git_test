@@ -1,19 +1,19 @@
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read; 
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
 }
 
-Book.prototype.toggleRead = function() {
+Book.prototype.toggleRead = function () {
   this.read = !this.read;
-}
+};
 
 function toggleRead(index) {
   myLibrary[index].toggleRead();
-  render()
+  render();
 }
 
 function render() {
@@ -41,7 +41,7 @@ function render() {
 
 function removeBook(index) {
   myLibrary.splice(index, 1);
-  render()
+  render();
 }
 
 function addBookToLibrary() {
@@ -56,12 +56,34 @@ function addBookToLibrary() {
 }
 
 let newBookbtn = document.querySelector("#new-book-btn");
-newBookbtn.addEventListener("click", function() {
-   let newBookForm = document.querySelector("#new-book-form");
-   newBookForm.style.display = "block";
-})
+newBookbtn.addEventListener("click", function () {
+  let newBookForm = document.querySelector("#new-book-form");
+  newBookForm.style.display = "block";
+  let title = document.getElementById("title");
+  title.addEventListener("input", () => {
+    if (title.validity.valueMissing) {
+      title.setCustomValidity("Required Input");
+    }
+  });
 
-document.querySelector("#new-book-form").addEventListener("submit", function(event){
-  event.preventDefault();
-  addBookToLibrary();
-})
+  let author = document.getElementById("author");
+  author.addEventListener("input", () => {
+    if (author.validity.valueMissing) {
+      author.setCustomValidity("Required Input");
+    }
+  });
+
+  let pages = document.getElementById("pages");
+  pages.addEventListener("input", () => {
+    if (pages.validity.valueMissing) {
+      pages.setCustomValidity("Required Input");
+    }
+  });
+});
+
+document
+  .querySelector("#new-book-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    addBookToLibrary();
+  });

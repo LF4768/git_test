@@ -7,13 +7,13 @@
   </head>
   <body>
     <button id="new-book-btn">New Book</button>
-    <form id="new-book-form" style="display: none;">
+    <form id="new-book-form" style="display: none;" >
       <label for="title">Title:</label>
-      <input type="text" id="title">
+      <input type="text" id="title" required>
       <label for="author">Author:</label>
-      <input type="text" id="author">
+      <input type="text" id="author" required> 
       <label for="pages">Pages:</label>
-      <input type="text" id="pages">
+      <input type="number" id="pages" required>
       <label for="read">Read:</label>
       <input type="checkbox" id="read">
       <input type="submit" value="Add Book">
