@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Js Form Validation</title>
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <form novalidate>
+      <!-- <p>
+        <label for="mail">
+          <span>Please enter valid email: </span>
+          <input type="email" id="mail" required minlength="8" />
+          <span class="error" aria-live="polite"></span>
+        </label>
+      </p> -->
+
+      <label for="file">Enter file less than 75kb</label>
+      <input type="file" id="file" /><br /><br />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
