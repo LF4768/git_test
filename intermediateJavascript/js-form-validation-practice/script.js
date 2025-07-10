@@ -10,7 +10,6 @@ const form = document.querySelector("form");
 
 function confirmPasswords() {
     if (password.value !== passwordConfirm.value) {
-        console.log("works");
         passwordConfirmError.textContent = "the passwords dont match";
         passwordConfirm.setCustomValidity("the passwords dont match");
     } else {
