@@ -1,3 +1,11 @@
+let promiseResolve = new Promise(function (resolve, reject) {
+    setTimeout(() => resolve("done"), 1000);
+});
+
+let promiseReject = new Promise(function (resolve, reject) {
+    setTimeout(() => reject(new Error("Whoops!")), 1000);
+});
+
 let userLeft = false;
 let userWatchingCatMeme = true;
 
@@ -37,6 +45,18 @@ Promise.all([promise1, promise2, promise3]).then((message) => {
     console.log(message);
 });
 
-Promise.race([promise1, promise2, promise3]).then((message) => {
-    console.log(message);
-});
+Promise.race([promise1, promise2, promise3])
+    .finally(() => {
+        console.log("and the result is");
+    })
+    .then((message) => {
+        console.log(message);
+    });
+
+function delay(ms) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(), ms);
+    });
+}
+
+delay(3000).then(() => alert("runs after 3 sec"));

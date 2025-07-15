@@ -4,18 +4,21 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <script src="./promises.js" defer></script>
     </head>
     <body>
-        <button class="previous-button">Previous</button>
-        <div class="container">
-            <div class="img-container">
-                <div class="image-left"></div>
-                <div class="frame"></div>
-                <div class="image-right"></div>
-            </div>
-            <div class="btn-container"></div>
-        </div>
-        <button class="next-button">Next</button>
+        <img src="#" />
+        <script>
+            const img = document.querySelector("img");
+            fetch(
+                "https://api.giphy.com/v1/gifs/translate?api_key=gkkdwZENpd6sRS6SDHSHqUcAzMT9NfQ3&s=dogs",
+                { mode: "cors" }
+            )
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (response) {
+                    img.src = response.data.images.original.url;
+                });
+        </script>
     </body>
 </html>
