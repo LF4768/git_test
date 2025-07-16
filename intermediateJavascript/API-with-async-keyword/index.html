@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <img src="#" />
+        <div class="input-category">
+            <label for="category">Input category for new GIF:</label>
+            <input type="text" id="category" name="category" />
+            <span class="error"></span>
+        </div>
+        <div class="btns">
+            <button class="change-gif-btn">Change GIF of same category</button>
+            <button class="change-category-button" type="submit">
+                Change Category
+            </button>
+        </div>
+        <script>
+            const img = document.querySelector("img");
+            const errorText = document.querySelector(".error");
+            async function imgGetter(str = "jiggly-puff") {
+                try {
+                    const response = await fetch(
+                        `https://api.giphy.com/v1/gifs/translate?api_key=gkkdwZENpd6sRS6SDHSHqUcAzMT9NfQ3&s=${str}`,
+                        { mode: "cors" }
+                    );
+                    const data = await response.json();
+                    img.src = data.data.images.original.url;
+                    if (errorText.classList.contains("active")) {
+                        errorText.className = "error";
+                    }
+                } catch (error) {
+                    errorText.textContent =
+                        "We couldnt process that req, please try again";
+                    errorText.className = "error active";
+                }
+                // .then(function (response) {
+                //     errorText.className = "error";
+                //     return response.json();
+                // })
+                // .then(function (response) {
+                //     img.src = response.data.images.original.url;
+                // })
+                // .catch(function (response) {
+                //     errorText.textContent =
+                //         "We couldnt process that req, please try again";
+                //     errorText.className = "error active";
+                // });
+            }
+
+            const changeGifBtn = document.querySelector(".change-gif-btn");
+            changeGifBtn.addEventListener("click", () => imgGetter());
+            const submitBtn = document.querySelector(".change-category-button");
+            submitBtn.addEventListener("click", () => {
+                let value = document.getElementById("category").value;
+                for (let i = 0; i < value.length; i++) {
+                    value = value.replace(" ", "-");
+                }
+                changeGifBtn.addEventListener("click", () => imgGetter(value));
+                imgGetter(value);
+            });
+        </script>
+
+        <style>
+            body {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .error {
+                display: none;
+            }
+
+            .error.active {
+                display: inline;
+                background-color: red;
+                color: white;
+            }
+        </style>
+    </body>
+</html>
