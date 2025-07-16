@@ -7,18 +7,70 @@
     </head>
     <body>
         <img src="#" />
+        <div class="input-category">
+            <label for="category">Input category for new GIF:</label>
+            <input type="text" id="category" name="category" />
+            <span class="error"></span>
+        </div>
+        <div class="btns">
+            <button class="change-gif-btn">Change GIF of same category</button>
+            <button class="change-category-button" type="submit">
+                Change Category
+            </button>
+        </div>
         <script>
             const img = document.querySelector("img");
-            fetch(
-                "https://api.giphy.com/v1/gifs/translate?api_key=gkkdwZENpd6sRS6SDHSHqUcAzMT9NfQ3&s=dogs",
-                { mode: "cors" }
-            )
-                .then(function (response) {
-                    return response.json();
-                })
-                .then(function (response) {
-                    img.src = response.data.images.original.url;
-                });
+            const errorText = document.querySelector(".error");
+            function imgGetter(str = "jiggly-puff") {
+                fetch(
+                    `https://api.giphy.com/v1/gifs/translate?api_key=gkkdwZENpd6sRS6SDHSHqUcAzMT9NfQ3&s=${str}`,
+                    { mode: "cors" }
+                )
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (response) {
+                        img.src = response.data.images.original.url;
+                        errorText.className = "error";
+                    })
+                    .catch(function (response) {
+                        errorText.textContent =
+                            "We couldnt process that req, please try again";
+                        errorText.className = "error active";
+                    });
+            }
+
+            const changeGifBtn = document.querySelector(".change-gif-btn");
+            changeGifBtn.addEventListener("click", () => imgGetter());
+            const submitBtn = document.querySelector(".change-category-button");
+            submitBtn.addEventListener("click", () => {
+                let value = document.getElementById("category").value;
+                for (let i = 0; i < value.length; i++) {
+                    value = value.replace(" ", "-");
+                }
+                changeGifBtn.addEventListener("click", () => imgGetter(value));
+                imgGetter(value);
+            });
         </script>
+
+        <style>
+            body {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .error {
+                display: none;
+            }
+
+            .error.active {
+                display: inline;
+                background-color: red;
+                color: white;
+            }
+        </style>
     </body>
 </html>
