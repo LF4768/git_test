@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function doubleAfter2Seconds(x) {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(x * 2);
+                    }, 2000);
+                });
+            }
+
+            function addPromise(x) {
+                return new Promise((resolve) => {
+                    doubleAfter2Seconds(10).then((a) => {
+                        doubleAfter2Seconds(20).then((b) => {
+                            doubleAfter2Seconds(30).then((c) => {
+                                resolve(x + a + b + c);
+                            });
+                        });
+                    });
+                });
+            }
+
+            async function addAsync(x) {
+                const result1 = await doubleAfter2Seconds(x);
+                const result2 = await doubleAfter2Seconds(result1);
+                const result3 = await doubleAfter2Seconds(result2);
+                return result3;
+            }
+            addAsync(10).then((sum) => {
+                console.log(sum);
+            });
+
+            addPromise(10).then((sum) => {
+                console.log(sum);
+            });
+            console.log(1);
+        </script>
+    </body>
+</html>
