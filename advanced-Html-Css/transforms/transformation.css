@@ -1,0 +1,120 @@
+body{ 
+    margin: 5rem;
+}
+
+img {
+    margin:4rem;
+    border: 5px solid red;
+}
+
+
+.degrees {
+    transform: rotate(45deg);
+}
+
+.radian {
+    transform: rotate(-1rad)
+}
+
+.turn {
+    transform: rotate(0.5turn)
+}
+
+.scaleX {
+    transform: scaleX(0.5)
+}
+
+
+.scaleY {
+    transform: scaleY(1.2)
+}
+
+.scaleZ {
+    transform: scaleZ(1.6)
+}
+
+.scaleXY {
+    transform: scale(0.5,1.2)
+}
+
+.scale {
+    transform: scale(0.5)
+}
+
+.skewX {
+    transform: skewX(30deg)
+}
+
+.skewY {
+    transform: skewY(-0.6rad)
+}
+
+.skewXY {
+    transform: skew(30deg, -0.6rad)
+}
+
+
+.translate-div {
+    width: 50%;
+    border: 1px dashed black
+}
+
+.translateX {
+    transform: translateX(150px)
+}
+
+.translateY {
+    transform: translateY(-33%)
+}
+
+.translateXY {
+    transform: translate(150px,-33%)
+}
+
+.red-box, .blue-box {
+    position: absolute;
+    width:100px;
+    height:100px;
+    margin:15px;
+}
+
+.red-box {
+    background-color: red;
+    transform: translate(200%) rotate(90deg) 
+}
+.blue-box {
+    background-color: blue;
+    transform: rotate(90deg) translate(200%)
+}
+
+.rotateX {
+    transform: rotateX(80deg)
+}
+
+.rotateY {
+    transform: rotateY(80deg)
+}
+
+.rotateZ {
+    transform: rotateZ(80deg)
+}
+
+.translate-low {
+    transform: perspective(100px) translateZ(5px)
+}
+
+.translate-negative {
+    transform: perspective(100px) translateZ(-100px)
+}
+
+.translate-high {
+    transform: perspective(100px) translateZ(30px)
+}
+
+.random-rotate {
+    transform: perspective(400px) rotate3d(3,3,1,70deg)
+}
+
+.random-inverse {
+    transform: perspective(400px) rotate3d(-6,3,1,70deg)
+}
