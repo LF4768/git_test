@@ -1,0 +1,161 @@
+body {
+    height: 100vh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
+
+.transition-background {
+    color: white;
+    padding:10px;
+    margin:2rem;
+    border-radius: 10px;
+    transition: background-color 1s ease-out 0.25ms
+    /* transition-property: background-color;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    transition-delay: 0.25s; */
+}
+
+.transition-background:hover {
+    background-color: black;
+}
+
+
+.transition-rotate {
+    color: black;
+    padding:10px;
+    margin:2rem;
+    border-radius: 10px;
+    transition: transform 1s ease-out 0.25ms
+}
+
+.transition-rotate:hover {
+    transform: rotate(180deg)
+}
+
+.transition-translate {
+    color: black;
+    padding:10px;
+    margin:2rem;
+    border-radius: 10px;
+    transition: transform 1s ease-out 
+}
+
+.transition-translate:hover {
+    transform: translate(50%,100%)
+}
+
+
+.transition-skew {
+    color: black;
+    padding:10px;
+    margin:2rem;
+    border-radius: 10px;
+    transition: transform 1s ease-out 0.25ms
+}
+
+.transition-skew:hover {
+    transform: skew(-30deg,-15deg)
+}
+
+.transition-scale {
+    color: black;
+    padding:10px;
+    margin:2rem;
+    border-radius: 10px;
+    transition: transform 1s ease-out 0.25ms
+}
+
+.transition-scale:hover {
+    transform: scale(120%,170%);
+    transition:transform 5s;
+} 
+
+
+.form-close {
+    position: relative;
+    width:60%;
+    height:70%;
+    margin-left:5rem;
+    text-align: center;
+    border: 2px solid red;
+    border-radius: 10px;
+    transform-origin: bottom left;
+    transform: scale(0%,0%) skew(40deg,20deg);
+    transition: transform 0.3s linear
+}
+
+.form-open {
+    position: absolute;
+    transform:scale(100%) translate(10%, -85%) skew(0deg,0deg)
+}
+
+
+.close {
+    position: absolute;
+    top:0;
+    right:0;
+    font-size: 25px;
+    background-color: white;
+    border: none;
+    transform: translateY(-140%)
+}
+
+.close:hover {
+    background-color: black;
+    color:white;
+    border-radius: 5px
+}
+
+
+.transition-popup {
+    position:absolute;
+    bottom: 0;
+    left:0;
+    color: black;
+    padding:10px;
+    margin:2rem;
+    border-radius: 10px;
+}
+
+.transition-cubic-bezier {
+    background-color: pink;
+    margin-top:50px;
+    width: 100%;
+    transition: width 3s cubic-bezier(0.29, 3, 0.5, -0.23)
+}
+
+.transition-cubic-bezier:hover {
+    width: 50%
+}
+
+.transition-steps {
+    background-color: pink;
+    margin-top:10px;
+    width: 100%;
+    transition: width 3s steps(10,jump-none)
+}
+
+.transition-steps:hover {
+    width: 50%
+}
+
+.container {
+    position: relative;
+    height: 50%;
+}
+
+.ball {
+    position: absolute;
+    top: 0;
+    left:0;
+    width:40px;
+    height:40px;
+    border-radius: 20px;
+    background-color: red;
+    transition: transform 1s
+}

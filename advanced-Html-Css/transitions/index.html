@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./styles.css" rel="stylesheet">
+</head>
+<body>
+    <button class="transition-background">Transition!</button>
+    <button class="transition-rotate">Hey I rotate!</button>
+    <button class="transition-translate">Hey I move!</button>
+    <button class="transition-skew">Hey I distort!</button>
+    <button class="transition-scale">Hey make me bigger!</button>
+    <div class="transition-cubic-bezier">Cubic Bezier</div>
+    <div class="transition-steps">Steps</div>
+    <div class="container">
+        <div class="ball"></div>
+    </div>
+    <div class="form-close">
+        <button class="close">djhgdjhjftyif</button>
+        <h1>Test Form</h1>
+        <p>This form proves that you are domb.</p>
+    </div>
+    <button class="transition-popup">Click me, I am a pop up!</button>
+</body>
+
+
+
+<script>
+    const openBtn = document.querySelector(".transition-popup")
+    const form = document.querySelector(".form-close")
+    const closeBtn = document.querySelector(".close")
+    const container = document.querySelector(".container")
+    const ball = document.querySelector(".ball")
+    
+
+    openBtn.addEventListener("click", () => {
+        form.classList.add("form-open")
+    })
+
+    closeBtn.addEventListener("click", () => {
+        form.classList.remove("form-open")
+    })
+
+
+    // container.addEventListener("click", (e) => {
+    //     ball.style.transform = `translateY(${e.clientY -210}px)`
+    //     ball.style.transform += `translateX(${e.clientX - 25}px)`
+    // })
+
+    // container.addEventListener("mouseover", (e) => {
+    //     ball.style.top = `${e.clientY -210}px`
+    //     ball.style.left = `${e.clientX - 25}px`
+    // })
+
+</script>
+</html>
