@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <img src="./images/lowres.webp" alt="blastoise" 
+    srcset="./images/highres.webp 2x">
+    <img alt="blastoise" 
+        srcset="./images/smallSize.webp 300w, ./images/highres.webp 600w"
+        sizes="
+            (max-width: 700px) calc(100vw - 3rem),
+            (max-width: 900px) calc(100vw - 5rem),
+            calc(100vw - 20rem)">
+
+    <picture> 
+        <source srcset="./images/highres.webp"
+         media="(min-width: 900px)">
+
+        <source srcset="./images/wartortle.jpg"
+         media="(min-width:700px)">
+
+        <img src="./images/squirtle.jpg" alt="water pokemon">
+    </picture>
+
+    <div class="size cover"></div>
+    <div class="size contain"></div>
+    <div class="size contain-no-repeat"></div>
+    <div class="size percentage"></div>
+    <div class="size seperate"></div>
+
+    <div class="position keyword"></div>
+    <div class="position double-keyword"></div>
+    <div class="position percent"></div>
+    <div class="double-image"> </div>
+
+    <img class="fit fill" src="./images/wartortle.jpg">
+    <img class="fit contain" src="./images/wartortle.jpg">
+    <img class="fit cover" src="./images/wartortle.jpg">
+    <img class="fit none" src="./images/wartortle.jpg">
+    <img class="fit scaledown" src="./images/wartortle.jpg">
+</body>
+</html>

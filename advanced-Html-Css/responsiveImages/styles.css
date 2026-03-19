@@ -1,0 +1,114 @@
+body {
+    margin: 3rem;
+}
+
+@media (max-width: 900px) {
+    body {
+        background-color: lightgrey;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media(max-width: 700px) {
+    body {
+        background-color:grey;
+        margin: 0px;
+    }
+}
+
+img {
+    margin: 3rem;
+}
+
+.size {
+    height:300px;
+    width: 300px;
+    background-image: url('images/squirtle.jpg');
+    margin:2rem;
+}
+
+.cover {
+    background-size: cover;
+}
+
+.contain {
+    background-size: contain;
+}
+
+
+.contain-no-repeat {
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.percentage {
+    background-size: 28%;
+}
+
+.seperate {
+    background-size: 100px 300px ;
+}
+
+.position {
+    height:300px;
+    width: 300px;
+    background-image: url('images/wartortle.jpg');
+    margin:2rem;
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-color: red;
+}
+
+
+
+.keyword {
+    background-position: right top;
+}
+
+.double-keyword {
+    background-position: left 5rem bottom 3rem;
+}
+
+.percent {
+    background-position: 65% 80%;
+}
+
+.double-image {
+    height:300px;
+    width: 300px;
+    background-image: url('images/wartortle.jpg'), url("./images/highres.webp");
+    margin:2rem;
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-color: red;
+    background-position: 0px 0px, 25% 60%;
+}
+
+.fit {
+    border: 2px solid black;
+    width: 800px;
+    height: 900px
+}
+
+.fill {
+    object-fit: fill;
+}
+
+.contain {
+    object-fit: contain;
+}
+
+.cover{
+    object-fit: cover;
+}
+
+.none {
+    object-fit: none;
+}
+
+.scaledown {
+    object-fit: scale-down;
+}
