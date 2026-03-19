@@ -1,0 +1,49 @@
+body {
+    height: 100vh;
+}
+
+.ball {
+    height:100px;
+    width:100px;
+    border-radius: 100px;
+    margin:5rem;
+    animation-name: colorChange; 
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes colorChange {
+    /* 0% {
+        background-color: green;
+    }
+    25% {
+        background-color: blue;
+        transform: scale(150%);
+    }
+    50% {
+        background-color: red;
+        transform: scale(100%)
+    }
+    75% {
+        background-color: blue;
+        transform: scale(150%);
+    }
+    100% {
+        background-color: green;
+        transform: scale(100%);
+    } */
+
+    from{ 
+        background-color: red;
+    }
+
+    50% {
+        transform: scale(2);
+        background-color: blue;
+    }
+
+    to {
+        background-color: green;
+    }
+}
