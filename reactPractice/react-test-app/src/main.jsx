@@ -5,12 +5,16 @@ import App from './App.jsx'
 import {FirstComponent,SecondComponent, Options} from "./Component.jsx"
 import Animals from "./Rendering.jsx"
 
+import Keys from "./Keys.jsx"
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <FirstComponent/>
     <SecondComponent/>  
     <Options/> */}
 
-    <Animals/>
+    {/* <Animals/> */}
+
+    <Keys/>
   </StrictMode>,
 )
