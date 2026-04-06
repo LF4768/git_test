@@ -109,3 +109,8 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+.App {
+  width: 1126pxz;
+  height:100vh;
+}

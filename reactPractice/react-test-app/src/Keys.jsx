@@ -25,8 +25,6 @@ function cryptoKeys() {
     
     // NEVER create keys during rendering
     // <li key={crypto.randomUUID()}></li> Defeats the whole purpose of keys
-
-
 }
 
 function IndexKeys() {
