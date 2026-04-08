@@ -6,6 +6,7 @@ import {FirstComponent,SecondComponent, Options} from "./Component.jsx"
 import Animals from "./Rendering.jsx"
 import Keys from "./Keys.jsx"
 import States from "./States.jsx"
+import Person from "./advancedStates.jsx"
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -13,10 +14,9 @@ createRoot(document.getElementById('root')).render(
     {/* <FirstComponent/>
     <SecondComponent/>  
     <Options/> */}
-
     {/* <Animals/> */}
-
     {/* <Keys/> */}
-    <States/>
+    {/* <States/> */}
+    <Person />
   </StrictMode>
 )
