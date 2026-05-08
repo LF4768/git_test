@@ -7,6 +7,8 @@ import Animals from "./Rendering.jsx"
 import Keys from "./Keys.jsx"
 import States from "./States.jsx"
 import Person from "./advancedStates.jsx"
+import Effects from "./Effects.jsx"
+import ClassComponent from './classComponents.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -17,6 +19,8 @@ createRoot(document.getElementById('root')).render(
     {/* <Animals/> */}
     {/* <Keys/> */}
     {/* <States/> */}
-    <Person />
+    {/* <Person /> */}
+    {/* <Effects /> */}
+    <ClassComponent name="My ToDoList"/>
   </StrictMode>
 )
