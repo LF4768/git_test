@@ -4,4 +4,9 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    user-select: none;
+}
+
+p {
+    pointer-events: none;
 }

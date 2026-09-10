@@ -9,18 +9,20 @@ import States from "./States.jsx"
 import Person from "./advancedStates.jsx"
 import Effects from "./Effects.jsx"
 import ClassComponent from './classComponents.jsx'
+import Tests from "./Tests.jsx"
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <App /> */}
-    {/* <FirstComponent/>
-    <SecondComponent/>  
-    <Options/> */}
+    {/* <FirstComponent/> */}
+    {/* <SecondComponent/>   */}
+    {/* <Options/> */}
     {/* <Animals/> */}
     {/* <Keys/> */}
     {/* <States/> */}
     {/* <Person /> */}
     {/* <Effects /> */}
-    <ClassComponent name="My ToDoList"/>
+    {/* <ClassComponent name="My ToDoList"/> */}
+    <Tests />
   </StrictMode>
 )

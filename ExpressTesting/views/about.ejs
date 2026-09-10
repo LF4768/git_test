@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Page</title>
+</head>
+<body>
+    <%- include('navbar', {user:name})%>
+    <p>Hello my name is <%= name %>, i am a student in <%= yr %>rd year. My email ID is <%= email %>.</p>
+    <p> These are the people in my team: </p>
+    <ul>
+        <% for (let i = 0; i < people.length; i++) {    %>
+            <li>name: <%= people[i] %></li>
+        <% } %>
+    </ul>
+    <%- include('footer') %>
+</body>
+</html>
