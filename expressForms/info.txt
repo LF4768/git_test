@@ -1,0 +1,39 @@
+
+
+[
+    body('birthdate','Must be a valid data')
+    .optional()
+    .isISO8601()  THIS ENFORCES YYYY-MM-DD FORMAT
+]
+
+
+
+[
+    body('name')
+    .trim()
+    .notEmpty()
+    .withMessage('Name must not be empty')
+    .isAlpha()
+    .withMessage('Name must contain only alphabet letters)
+]
+
+
+
+const controller = (req,res,next) => {
+    const errors = validationResult(req);
+    if(!errors.isEmpty()) {
+        return res.status(404).render('index', {
+            errors: errors.array(),
+        })
+    }
+
+    res.redirect('/success')
+
+}
+
+
+
+exports.userUpdateGet = (req,res,next) => {}
+exports.userUpdatePost = (req,res,next) => {}
+
+<form action="/users/<%= user.userId %>/update" method="POST"></form>
